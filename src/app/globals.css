@@ -3,14 +3,208 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+
+  /* Base colors */
+  --background: var(--background);
+  --foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+
+  /* Text colors */
+  --text-50: #edf2f8;
+  --text-100: #dae6f1;
+  --text-200: #b6cce2;
+  --text-300: #91b2d4;
+  --text-400: #6c99c6;
+  --text-500: #477fb8;
+  --text-600: #396693;
+  --text-700: #2b4c6e;
+  --text-800: #1d3349;
+  --text-900: #0e1925;
+  --text-950: #070d12;
+
+  /* Background colors */
+  --background-50: #ecf2f8;
+  --background-100: #dae6f1;
+  --background-200: #b4cce4;
+  --background-300: #8fb2d6;
+  --background-400: #6999c9;
+  --background-500: #447fbb;
+  --background-600: #366696;
+  --background-700: #294c70;
+  --background-800: #1b334b;
+  --background-900: #0e1925;
+  --background-950: #070d13;
+
+  /* Primary colors */
+  --primary-50: #edf2f7;
+  --primary-100: #dbe6f0;
+  --primary-200: #b7cde1;
+  --primary-300: #93b4d2;
+  --primary-400: #6f9ac3;
+  --primary-500: #4b81b4;
+  --primary-600: #3c6790;
+  --primary-700: #2d4e6c;
+  --primary-800: #1e3448;
+  --primary-900: #0f1a24;
+  --primary-950: #080d12;
+
+  /* Secondary colors */
+  --secondary-50: #efedf8;
+  --secondary-100: #e0dbf0;
+  --secondary-200: #c1b7e1;
+  --secondary-300: #a192d3;
+  --secondary-400: #826ec4;
+  --secondary-500: #634ab5;
+  --secondary-600: #4f3b91;
+  --secondary-700: #3b2c6d;
+  --secondary-800: #281e48;
+  --secondary-900: #140f24;
+  --secondary-950: #0a0712;
+
+  /* Accent colors */
+  --accent-50: #f3edf8;
+  --accent-100: #e6dbf0;
+  --accent-200: #cdb7e1;
+  --accent-300: #b592d3;
+  --accent-400: #9c6ec4;
+  --accent-500: #834ab5;
+  --accent-600: #693b91;
+  --accent-700: #4f2c6d;
+  --accent-800: #341e48;
+  --accent-900: #1a0f24;
+  --accent-950: #0d0712;
+}
+
+.dark {
+  /* Text colors */
+  --text-50: #070d12;
+  --text-100: #0f1a24;
+  --text-200: #1d3449;
+  --text-300: #2c4f6d;
+  --text-400: #3a6992;
+  --text-500: #4983b6;
+  --text-600: #6d9cc5;
+  --text-700: #92b5d3;
+  --text-800: #b6cde2;
+  --text-900: #dbe6f0;
+  --text-950: #edf3f8;
+
+  /* Background colors */
+  --background-50: #070d12;
+  --background-100: #0e1a25;
+  --background-200: #1c354a;
+  --background-300: #2a4f6f;
+  --background-400: #386994;
+  --background-500: #4683b9;
+  --background-600: #6b9cc7;
+  --background-700: #90b5d5;
+  --background-800: #b5cee3;
+  --background-900: #dae6f1;
+  --background-950: #edf3f8;
+
+  /* Primary colors */
+  --primary-50: #080d12;
+  --primary-100: #0f1a24;
+  --primary-200: #1e3448;
+  --primary-300: #2d4e6c;
+  --primary-400: #3c6790;
+  --primary-500: #4b81b4;
+  --primary-600: #6f9ac3;
+  --primary-700: #93b4d2;
+  --primary-800: #b7cde1;
+  --primary-900: #dbe6f0;
+  --primary-950: #edf2f7;
+
+  /* Secondary colors */
+  --secondary-50: #0a0712;
+  --secondary-100: #140f24;
+  --secondary-200: #281e48;
+  --secondary-300: #3b2c6d;
+  --secondary-400: #4f3b91;
+  --secondary-500: #634ab5;
+  --secondary-600: #826ec4;
+  --secondary-700: #a192d3;
+  --secondary-800: #c1b7e1;
+  --secondary-900: #e0dbf0;
+  --secondary-950: #efedf8;
+
+  /* Accent colors */
+  --accent-50: #0d0712;
+  --accent-100: #1a0f24;
+  --accent-200: #341e48;
+  --accent-300: #4f2c6d;
+  --accent-400: #693b91;
+  --accent-500: #834ab5;
+  --accent-600: #9c6ec4;
+  --accent-700: #b592d3;
+  --accent-800: #cdb7e1;
+  --accent-900: #e6dbf0;
+  --accent-950: #f3edf8;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-text-50: var(--text-50);
+  --color-text-100: var(--text-100);
+  --color-text-200: var(--text-200);
+  --color-text-300: var(--text-300);
+  --color-text-400: var(--text-400);
+  --color-text-500: var(--text-500);
+  --color-text-600: var(--text-600);
+  --color-text-700: var(--text-700);
+  --color-text-800: var(--text-800);
+  --color-text-900: var(--text-900);
+  --color-text-950: var(--text-950);
+  --color-background-50: var(--background-50);
+  --color-background-100: var(--background-100);
+  --color-background-200: var(--background-200);
+  --color-background-300: var(--background-300);
+  --color-background-400: var(--background-400);
+  --color-background-500: var(--background-500);
+  --color-background-600: var(--background-600);
+  --color-background-700: var(--background-700);
+  --color-background-800: var(--background-800);
+  --color-background-900: var(--background-900);
+  --color-background-950: var(--background-950);
+  --color-primary-50: var(--primary-50);
+  --color-primary-100: var(--primary-100);
+  --color-primary-200: var(--primary-200);
+  --color-primary-300: var(--primary-300);
+  --color-primary-400: var(--primary-400);
+  --color-primary-500: var(--primary-500);
+  --color-primary-600: var(--primary-600);
+  --color-primary-700: var(--primary-700);
+  --color-primary-800: var(--primary-800);
+  --color-primary-900: var(--primary-900);
+  --color-primary-950: var(--primary-950);
+  --color-secondary-50: var(--secondary-50);
+  --color-secondary-100: var(--secondary-100);
+  --color-secondary-200: var(--secondary-200);
+  --color-secondary-300: var(--secondary-300);
+  --color-secondary-400: var(--secondary-400);
+  --color-secondary-500: var(--secondary-500);
+  --color-secondary-600: var(--secondary-600);
+  --color-secondary-700: var(--secondary-700);
+  --color-secondary-800: var(--secondary-800);
+  --color-secondary-900: var(--secondary-900);
+  --color-secondary-950: var(--secondary-950);
+  --color-accent-50: var(--accent-50);
+  --color-accent-100: var(--accent-100);
+  --color-accent-200: var(--accent-200);
+  --color-accent-300: var(--accent-300);
+  --color-accent-400: var(--accent-400);
+  --color-accent-500: var(--accent-500);
+  --color-accent-600: var(--accent-600);
+  --color-accent-700: var(--accent-700);
+  --color-accent-800: var(--accent-800);
+  --color-accent-900: var(--accent-900);
+  --color-accent-950: var(--accent-950);
 }
+
+
+
 
 @media (prefers-color-scheme: dark) {
   :root {
