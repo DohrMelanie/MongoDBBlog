@@ -1,4 +1,4 @@
-use Blog
+use("blog")
 
 db.createCollection("BlogUsers")
 db.createCollection("BlogEntries")
