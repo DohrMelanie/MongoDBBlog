@@ -1155,6 +1155,10 @@
     background-color: var(--background-50);
   }
 
+  .bg-background-100 {
+    background-color: var(--background-100);
+  }
+
   .bg-background-200 {
     background-color: var(--background-200);
   }
@@ -1223,6 +1227,10 @@
 
   .p-0 {
     padding: calc(var(--spacing) * 0);
+  }
+
+  .p-2 {
+    padding: calc(var(--spacing) * 2);
   }
 
   .p-8 {

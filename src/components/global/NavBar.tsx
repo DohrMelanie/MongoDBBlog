@@ -10,7 +10,7 @@ export default function NavBar() {
   const pathname = usePathname();
 
   return (
-    <Navbar>
+    <Navbar className="bg-background-100 p-2">
       <NavbarBrand className="flex gap-2 cursor-pointer">
         <Logo width={50} height={50}/>
         <p className="font-bold text-inherit">Rich Money Blogs</p>
@@ -26,18 +26,18 @@ export default function NavBar() {
             Trending Profiles
           </Link>
         </NavbarItem>
-        <NavbarItem>
-          <Link color="foreground" href="#">
+        <NavbarItem isActive={pathname === "/search"}>
+          <Link color="foreground" href="/search">
             Search
           </Link>
         </NavbarItem>
       </NavbarContent>
       <NavbarContent justify="end">
         <NavbarItem className="hidden lg:flex">
-          <Link href="#">Login</Link>
+          <Link href="/login">Login</Link>
         </NavbarItem>
         <NavbarItem>
-          <Button as={Link} color="primary" href="#" variant="flat">
+          <Button as={Link} color="primary" href="/signup" variant="flat">
             Sign Up
           </Button>
         </NavbarItem>
