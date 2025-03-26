@@ -12,8 +12,8 @@ export default function NavBar() {
   return (
     <Navbar>
       <NavbarBrand className="flex gap-2 cursor-pointer">
-        <Logo />
-        <p className="font-bold text-inherit">DB Blog</p>
+        <Logo width={50} height={50}/>
+        <p className="font-bold text-inherit">Rich Money Blogs</p>
       </NavbarBrand>
       <NavbarContent className="hidden sm:flex gap-4" justify="center">
         <NavbarItem isActive={pathname === "/"}>

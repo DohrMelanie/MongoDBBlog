@@ -10,55 +10,394 @@ __turbopack_context__.s({
 });
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
 ;
-function Logo({ className = "" }) {
+function Logo({ className = "", width = 180, height = 180 }) {
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
-        width: "40",
-        height: "40",
-        viewBox: "0 0 40 40",
-        fill: "none",
+        width: width,
+        height: height,
+        viewBox: "0 0 180 180",
+        version: "1.1",
+        id: "svg1",
         xmlns: "http://www.w3.org/2000/svg",
         className: className,
         children: [
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("rect", {
-                width: "40",
-                height: "40",
-                rx: "8",
-                fill: "white"
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("defs", {
+                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("rect", {
+                    x: "-20.826446",
+                    y: "50.206612",
+                    width: "94.46281",
+                    height: "60.247934",
+                    id: "rect3"
+                }, void 0, false, {
+                    fileName: "[project]/src/components/icons/Logo.tsx",
+                    lineNumber: 22,
+                    columnNumber: 9
+                }, this)
             }, void 0, false, {
                 fileName: "[project]/src/components/icons/Logo.tsx",
-                lineNumber: 17,
+                lineNumber: 21,
                 columnNumber: 7
             }, this),
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
-                d: "M10 10H30V14H10V10Z",
-                fill: "black"
-            }, void 0, false, {
-                fileName: "[project]/src/components/icons/Logo.tsx",
-                lineNumber: 18,
-                columnNumber: 7
-            }, this),
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
-                d: "M10 18H25V22H10V18Z",
-                fill: "black"
-            }, void 0, false, {
-                fileName: "[project]/src/components/icons/Logo.tsx",
-                lineNumber: 22,
-                columnNumber: 7
-            }, this),
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
-                d: "M10 26H20V30H10V26Z",
-                fill: "black"
-            }, void 0, false, {
-                fileName: "[project]/src/components/icons/Logo.tsx",
-                lineNumber: 26,
-                columnNumber: 7
-            }, this),
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("circle", {
-                cx: "30",
-                cy: "28",
-                r: "5",
-                fill: "#0066FF"
-            }, void 0, false, {
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("g", {
+                id: "layer1",
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("rect", {
+                        style: {
+                            fill: "#ffffff"
+                        },
+                        id: "rect4",
+                        width: "180",
+                        height: "181.11571",
+                        x: "0",
+                        y: "0"
+                    }, void 0, false, {
+                        fileName: "[project]/src/components/icons/Logo.tsx",
+                        lineNumber: 31,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("text", {
+                        style: {
+                            fontSize: "29.3333px",
+                            textAlign: "start",
+                            direction: "ltr",
+                            textAnchor: "start",
+                            whiteSpace: "pre",
+                            inlineSize: 0,
+                            fill: "#000000"
+                        },
+                        x: "13.38843",
+                        y: "29.380165",
+                        id: "text1",
+                        transform: "matrix(0.97997479,0,0,3.2567644,4.2222936,23.784522)",
+                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("tspan", {
+                            id: "tspan1",
+                            x: "13.38843",
+                            y: "29.380165",
+                            style: {
+                                fontStyle: "normal",
+                                fontVariant: "normal",
+                                fontWeight: "normal",
+                                fontStretch: "normal",
+                                fontSize: "29.3333px",
+                                fontFamily: "Noto Sans Yi"
+                            },
+                            children: [
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("tspan", {
+                                    style: {
+                                        fill: "#008000"
+                                    },
+                                    id: "tspan9",
+                                    children: "R"
+                                }, void 0, false, {
+                                    fileName: "[project]/src/components/icons/Logo.tsx",
+                                    lineNumber: 67,
+                                    columnNumber: 13
+                                }, this),
+                                "ich",
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("tspan", {
+                                    style: {
+                                        fill: "#008000"
+                                    },
+                                    id: "tspan10",
+                                    children: "M"
+                                }, void 0, false, {
+                                    fileName: "[project]/src/components/icons/Logo.tsx",
+                                    lineNumber: 71,
+                                    columnNumber: 13
+                                }, this),
+                                "oney"
+                            ]
+                        }, void 0, true, {
+                            fileName: "[project]/src/components/icons/Logo.tsx",
+                            lineNumber: 54,
+                            columnNumber: 11
+                        }, this)
+                    }, void 0, false, {
+                        fileName: "[project]/src/components/icons/Logo.tsx",
+                        lineNumber: 39,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("text", {
+                        style: {
+                            fontSize: "34.8675px",
+                            textAlign: "start",
+                            direction: "ltr",
+                            textAnchor: "start",
+                            fill: "#000000",
+                            strokeWidth: "1.18867"
+                        },
+                        x: "-147.50708",
+                        y: "204.2345",
+                        id: "text2",
+                        transform: "scale(-1.1886663,0.84127901)",
+                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("tspan", {
+                            id: "tspan2",
+                            x: "-147.50708",
+                            y: "204.2345",
+                            style: {
+                                strokeWidth: "1.18867"
+                            },
+                            children: [
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("tspan", {
+                                    style: {
+                                        fontStyle: "normal",
+                                        fontVariant: "normal",
+                                        fontWeight: "normal",
+                                        fontStretch: "normal",
+                                        fontFamily: "Noto Sans Yi",
+                                        strokeWidth: "1.18867"
+                                    },
+                                    id: "tspan4",
+                                    children: [
+                                        "Lif",
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("tspan", {
+                                            style: {
+                                                fill: "#ff0000"
+                                            },
+                                            id: "tspan5",
+                                            children: "3"
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/components/icons/Logo.tsx",
+                                            lineNumber: 109,
+                                            columnNumber: 15
+                                        }, this)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "[project]/src/components/icons/Logo.tsx",
+                                    lineNumber: 97,
+                                    columnNumber: 13
+                                }, this),
+                                "!"
+                            ]
+                        }, void 0, true, {
+                            fileName: "[project]/src/components/icons/Logo.tsx",
+                            lineNumber: 91,
+                            columnNumber: 11
+                        }, this)
+                    }, void 0, false, {
+                        fileName: "[project]/src/components/icons/Logo.tsx",
+                        lineNumber: 77,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("text", {
+                        style: {
+                            fontSize: "37.2639px",
+                            textAlign: "start",
+                            direction: "ltr",
+                            textAnchor: "start",
+                            fill: "#000000",
+                            strokeWidth: "1.27036"
+                        },
+                        x: "0.35939097",
+                        y: "218.69344",
+                        id: "text2-3",
+                        transform: "scale(1.2703603,0.78717826)",
+                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("tspan", {
+                            id: "tspan2-1",
+                            x: "0.35939097",
+                            y: "218.69344",
+                            style: {
+                                strokeWidth: "1.27036"
+                            },
+                            children: [
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("tspan", {
+                                    style: {
+                                        fontStyle: "normal",
+                                        fontVariant: "normal",
+                                        fontWeight: "normal",
+                                        fontStretch: "normal",
+                                        fontFamily: "Noto Sans Yi",
+                                        strokeWidth: "1.27036"
+                                    },
+                                    id: "tspan4-7",
+                                    children: [
+                                        "Lif",
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("tspan", {
+                                            style: {
+                                                fill: "#ff0000"
+                                            },
+                                            id: "tspan6",
+                                            children: "3"
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/components/icons/Logo.tsx",
+                                            lineNumber: 148,
+                                            columnNumber: 15
+                                        }, this)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "[project]/src/components/icons/Logo.tsx",
+                                    lineNumber: 136,
+                                    columnNumber: 13
+                                }, this),
+                                "!"
+                            ]
+                        }, void 0, true, {
+                            fileName: "[project]/src/components/icons/Logo.tsx",
+                            lineNumber: 130,
+                            columnNumber: 11
+                        }, this)
+                    }, void 0, false, {
+                        fileName: "[project]/src/components/icons/Logo.tsx",
+                        lineNumber: 116,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("text", {
+                        style: {
+                            fontSize: "34.8675px",
+                            textAlign: "start",
+                            direction: "ltr",
+                            textAnchor: "start",
+                            fill: "#000000",
+                            strokeWidth: "1.18867"
+                        },
+                        x: "-148.76653",
+                        y: "35.092533",
+                        id: "text2-2",
+                        transform: "scale(-1.1886663,0.84127901)",
+                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("tspan", {
+                            id: "tspan2-17",
+                            x: "-148.76653",
+                            y: "35.092533",
+                            style: {
+                                strokeWidth: "1.18867"
+                            },
+                            children: [
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("tspan", {
+                                    style: {
+                                        fontStyle: "normal",
+                                        fontVariant: "normal",
+                                        fontWeight: "normal",
+                                        fontStretch: "normal",
+                                        fontFamily: "Noto Sans Yi",
+                                        strokeWidth: "1.18867"
+                                    },
+                                    id: "tspan4-8",
+                                    children: [
+                                        "Lif",
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("tspan", {
+                                            style: {
+                                                fill: "#ff0000"
+                                            },
+                                            id: "tspan8",
+                                            children: "3"
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/components/icons/Logo.tsx",
+                                            lineNumber: 187,
+                                            columnNumber: 15
+                                        }, this)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "[project]/src/components/icons/Logo.tsx",
+                                    lineNumber: 175,
+                                    columnNumber: 13
+                                }, this),
+                                "!"
+                            ]
+                        }, void 0, true, {
+                            fileName: "[project]/src/components/icons/Logo.tsx",
+                            lineNumber: 169,
+                            columnNumber: 11
+                        }, this)
+                    }, void 0, false, {
+                        fileName: "[project]/src/components/icons/Logo.tsx",
+                        lineNumber: 155,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("text", {
+                        style: {
+                            fontSize: "37.2639px",
+                            textAlign: "start",
+                            direction: "ltr",
+                            textAnchor: "start",
+                            fill: "#000000",
+                            strokeWidth: "1.27036"
+                        },
+                        x: "1.5378422",
+                        y: "37.926781",
+                        id: "text2-3-5",
+                        transform: "scale(1.2703603,0.78717826)",
+                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("tspan", {
+                            id: "tspan2-1-7",
+                            x: "1.5378422",
+                            y: "37.926781",
+                            style: {
+                                strokeWidth: "1.27036"
+                            },
+                            children: [
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("tspan", {
+                                    style: {
+                                        fontStyle: "normal",
+                                        fontVariant: "normal",
+                                        fontWeight: "normal",
+                                        fontStretch: "normal",
+                                        fontFamily: "Noto Sans Yi",
+                                        strokeWidth: "1.27036"
+                                    },
+                                    id: "tspan4-7-4",
+                                    children: [
+                                        "Lif",
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("tspan", {
+                                            style: {
+                                                fill: "#ff0000"
+                                            },
+                                            id: "tspan7",
+                                            children: "3"
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/components/icons/Logo.tsx",
+                                            lineNumber: 226,
+                                            columnNumber: 15
+                                        }, this)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "[project]/src/components/icons/Logo.tsx",
+                                    lineNumber: 214,
+                                    columnNumber: 13
+                                }, this),
+                                "!"
+                            ]
+                        }, void 0, true, {
+                            fileName: "[project]/src/components/icons/Logo.tsx",
+                            lineNumber: 208,
+                            columnNumber: 11
+                        }, this)
+                    }, void 0, false, {
+                        fileName: "[project]/src/components/icons/Logo.tsx",
+                        lineNumber: 194,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("text", {
+                        id: "text3",
+                        style: {
+                            fontStyle: "normal",
+                            fontVariant: "normal",
+                            fontWeight: "normal",
+                            fontStretch: "normal",
+                            fontSize: "29.3333px",
+                            fontFamily: "Noto Sans Bengali UI",
+                            textAlign: "start",
+                            direction: "ltr",
+                            whiteSpace: "pre",
+                            display: "inline",
+                            fill: "#000000"
+                        }
+                    }, void 0, false, {
+                        fileName: "[project]/src/components/icons/Logo.tsx",
+                        lineNumber: 233,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                        style: {
+                            fill: "#008000"
+                        },
+                        id: "path10",
+                        d: "M -0.82515231,7.4263714 -2.2780701,4.0697277 -5.866874,3.3636742 -3.1234924,0.94460731 -3.560997,-2.6867305 -0.41257611,-0.82515237 2.905835,-2.363389 2.1082846,1.2061964 4.59668,3.8868517 0.95534587,4.2313987 Z",
+                        transform: "matrix(0.6582748,0,0,2.903823,39.252762,47.197832)"
+                    }, void 0, false, {
+                        fileName: "[project]/src/components/icons/Logo.tsx",
+                        lineNumber: 249,
+                        columnNumber: 9
+                    }, this)
+                ]
+            }, void 0, true, {
                 fileName: "[project]/src/components/icons/Logo.tsx",
                 lineNumber: 30,
                 columnNumber: 7
@@ -66,7 +405,7 @@ function Logo({ className = "" }) {
         ]
     }, void 0, true, {
         fileName: "[project]/src/components/icons/Logo.tsx",
-        lineNumber: 9,
+        lineNumber: 12,
         columnNumber: 5
     }, this);
 }
@@ -110,14 +449,17 @@ function NavBar() {
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$heroui$2f$navbar$2f$dist$2f$chunk$2d$4DMBHLGU$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__navbar_brand_default__as__NavbarBrand$3e$__["NavbarBrand"], {
                 className: "flex gap-2 cursor-pointer",
                 children: [
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$icons$2f$Logo$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$icons$2f$Logo$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
+                        width: 50,
+                        height: 50
+                    }, void 0, false, {
                         fileName: "[project]/src/components/global/NavBar.tsx",
                         lineNumber: 15,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                         className: "font-bold text-inherit",
-                        children: "DB Blog"
+                        children: "Rich Money Blogs"
                     }, void 0, false, {
                         fileName: "[project]/src/components/global/NavBar.tsx",
                         lineNumber: 16,
