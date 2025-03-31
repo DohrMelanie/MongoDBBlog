@@ -1,0 +1,8 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 6, "column": 0}, "map": {"version":3,"sources":[],"names":[],"mappings":"","debugId":null}},
+    {"offset": {"line": 60, "column": 0}, "map": {"version":3,"sources":["file:///home/laflame/Documents/School-Git/mongo/task3/src/utils/mongo.ts"],"sourcesContent":["import { MongoClient } from \"mongodb\";\n\nconst uri = process.env.MONGODB_URI || \"mongodb://localhost:27017\";\nconst client = new MongoClient(uri);\nconst db = client.db(\"blog\");\n\nexport default db;"],"names":[],"mappings":";;;AAAA;;AAEA,MAAM,MAAM,QAAQ,GAAG,CAAC,WAAW,IAAI;AACvC,MAAM,SAAS,IAAI,uGAAA,CAAA,cAAW,CAAC;AAC/B,MAAM,KAAK,OAAO,EAAE,CAAC;uCAEN","debugId":null}},
+    {"offset": {"line": 83, "column": 0}, "map": {"version":3,"sources":["file:///home/laflame/Documents/School-Git/mongo/task3/src/app/api/v1/users/route.ts"],"sourcesContent":["import db from \"@/utils/mongo\";\nimport { NextRequest, NextResponse } from \"next/server\";\n\nexport async function GET(request: NextRequest) {\n    const users = await db.collection(\"BlogUsers\").find({}).toArray();\n\n    return NextResponse.json(users);\n}"],"names":[],"mappings":";;;AAAA;AACA;;;AAEO,eAAe,IAAI,OAAoB;IAC1C,MAAM,QAAQ,MAAM,uHAAA,CAAA,UAAE,CAAC,UAAU,CAAC,aAAa,IAAI,CAAC,CAAC,GAAG,OAAO;IAE/D,OAAO,gIAAA,CAAA,eAAY,CAAC,IAAI,CAAC;AAC7B","debugId":null}}]
+}

@@ -1,47 +1,38 @@
 "use client"
 
-import { Navbar, NavbarBrand, NavbarContent, NavbarItem } from "@heroui/navbar";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { Button } from "@heroui/button";
-import Logo from "@/components/icons/Logo";
+import { usePathname } from "next/navigation"
+import Nav from "../ui/flowbite/nav/nav";
+import Section from "../ui/flowbite/nav/section";
+import Element from "../ui/flowbite/nav/element";
+import LogoElement from "../ui/flowbite/nav/logo-element";
+import Logo from "../icons/Logo";
 
 export default function NavBar() {
   const pathname = usePathname();
 
   return (
-    <Navbar className="bg-background-100 p-2">
-      <NavbarBrand className="flex gap-2 cursor-pointer">
-        <Logo width={50} height={50}/>
-        <p className="font-bold text-inherit">Rich Money Blogs</p>
-      </NavbarBrand>
-      <NavbarContent className="hidden sm:flex gap-4" justify="center">
-        <NavbarItem isActive={pathname === "/"}>
-          <Link color="foreground" href="/">
-            Feed
-          </Link>
-        </NavbarItem>
-        <NavbarItem isActive={pathname === "/trending/profiles"}>
-          <Link color="foreground" href="/trending/profiles">
-            Trending Profiles
-          </Link>
-        </NavbarItem>
-        <NavbarItem isActive={pathname === "/search"}>
-          <Link color="foreground" href="/search">
-            Search
-          </Link>
-        </NavbarItem>
-      </NavbarContent>
-      <NavbarContent justify="end">
-        <NavbarItem className="hidden lg:flex">
+    <Nav>
+      <LogoElement href="/" svg={<Logo width={50} height={50} className="rounded-sm" />} text="Rich Money Blogs" />
+      <Section>
+        <Element>
+          <Link href="/">Feed</Link>
+        </Element>
+        <Element>
+          <Link href="/trending">Trending</Link>
+        </Element>
+        <Element>
+          <Link href="/about">About</Link>
+        </Element>
+      </Section>
+      <Section>
+        <Element>
           <Link href="/login">Login</Link>
-        </NavbarItem>
-        <NavbarItem>
-          <Button as={Link} color="primary" href="/signup" variant="flat">
-            Sign Up
-          </Button>
-        </NavbarItem>
-      </NavbarContent>
-    </Navbar>
+        </Element>
+        <Element className="text-primary-500">
+          <Link href="/signup">Sign Up</Link>
+        </Element>
+      </Section>
+    </Nav>
   );
 }
