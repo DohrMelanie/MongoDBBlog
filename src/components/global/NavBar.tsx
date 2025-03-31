@@ -7,10 +7,29 @@ import Section from "../ui/flowbite/nav/section";
 import Element from "../ui/flowbite/nav/element";
 import LogoElement from "../ui/flowbite/nav/logo-element";
 import Logo from "../icons/Logo";
+import { useEffect } from "react";
+import { useState } from "react";
+import Spinner from "../ui/flowbite/spinner";
+import Profile from "../ui/flowbite/nav/profile";
 
 export default function NavBar() {
-  const pathname = usePathname();
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
+  useEffect(() => {
+    const ping = async () => {
+      const res = await fetch("/api/auth/verify");
+      if (res.ok) {
+        setIsLoggedIn(true);
+        setIsLoading(false);
+      }
+    };
+
+    ping();
+  }, []);
+
+  const pathname = usePathname();
+  
   return (
     <Nav>
       <LogoElement href="/" svg={<Logo width={50} height={50} className="rounded-sm" />} text="Rich Money Blogs" />
@@ -25,14 +44,26 @@ export default function NavBar() {
           <Link href="/about">About</Link>
         </Element>
       </Section>
-      <Section>
-        <Element>
-          <Link href="/auth">Login</Link>
-        </Element>
-        <Element className="text-primary-500">
-          <Link href="/signup">Sign Up</Link>
-        </Element>
-      </Section>
+      {isLoading ? (
+        <Section>
+          <Element>
+            <Spinner />
+          </Element>
+        </Section>
+      ) : isLoggedIn ? (
+        <Section>
+          <Profile />
+        </Section>
+      ) : (
+        <Section>
+          <Element>
+            <Link href="/signup">Sign Up</Link>
+          </Element>
+          <Element>
+            <Link href="/auth">Login</Link>
+          </Element>
+        </Section>
+      )}
     </Nav>
   );
 }
