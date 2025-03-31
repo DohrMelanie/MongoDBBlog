@@ -9,7 +9,8 @@ A simple blog app built with Next.js 14, MongoDB, Tailwind CSS, TypeScript, and 
 - Tailwind CSS
 - TypeScript
 - JWT
-- Shadcn UI
+- Flowbite
+- Nodemailer
 
 ## Getting Started
 

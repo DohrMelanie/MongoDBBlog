@@ -27,7 +27,7 @@ export default function NavBar() {
       </Section>
       <Section>
         <Element>
-          <Link href="/login">Login</Link>
+          <Link href="/auth">Login</Link>
         </Element>
         <Element className="text-primary-500">
           <Link href="/signup">Sign Up</Link>

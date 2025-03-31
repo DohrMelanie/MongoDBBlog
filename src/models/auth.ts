@@ -22,3 +22,13 @@ export type UserCreationData = {
         lastname: string;
     };
 }
+
+export type UserDetails = {
+    username: string;
+    name: {
+        firstname: string;
+        lastname: string;
+    };
+    email: string;
+    isVerified: boolean;
+}

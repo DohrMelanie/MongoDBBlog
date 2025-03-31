@@ -1,24 +1,60 @@
 import { NextRequest } from "next/server";
 import { NextResponse } from "next/server";
-import jwt from "jsonwebtoken";
+import tokenManager from "./utils/token-manager";
+import { JwtPayload } from "jsonwebtoken";
+export async function middleware(request: NextRequest) {
+  const cookie = request.cookies.get("token");
 
-export function middleware(request: NextRequest) {
-  const authHeader = request.headers.get("authorization");
-  
-  if (!authHeader || !authHeader.startsWith("Bearer ")) {
+  if (!cookie) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
-  const token = authHeader.split(" ")[1];
-  try {
-    const decoded = jwt.verify(token, process.env.JWT_SECRET || "default-secret");
-    if (!decoded) {
-      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  const token = await fetch(request.nextUrl.origin + "/api/auth/verify", {
+    method: "GET",
+    headers: {
+      "Cookie": `token=${cookie.value}`
     }
-  } catch (error) {
-    return NextResponse.json({ error: "Invalid token" }, { status: 403 });
+  });
+
+  const tokenData : JwtPayload = await token.json();
+
+  if (!tokenData) {
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  }
+  
+  if(typeof tokenData === "string") {
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
+  if(tokenData.exp && tokenData.exp < Date.now() / 1000) {
+    const refreshToken = await fetch(request.nextUrl.origin + "/api/auth/verify", {
+      method: "GET",
+      headers: {
+        "Cookie": `token=${tokenData.refreshToken}`
+      }
+    });
+
+    const refreshTokenData : JwtPayload = await refreshToken.json();
+
+    if(!refreshTokenData) {
+      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    }
+
+    if(typeof refreshTokenData === "string") {
+      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    }
+
+    if(refreshTokenData.exp && refreshTokenData.exp < Date.now() / 1000) {
+      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    }
+
+    const newToken = await tokenManager.generateToken(refreshTokenData.username);
+
+    request.cookies.set("token", newToken);
+
+    return NextResponse.next();
+  }
+  
   return NextResponse.next();
 }
 

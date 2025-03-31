@@ -1,38 +1,48 @@
 import { MandatoryUserData, UserCreationData } from "@/models/auth";
-import db from "@/utils/mongo";
 import { NextResponse } from "next/server";
-import jwt from "jsonwebtoken";
+import AuthManager from "@/utils/auth";
+import mailer from "@/utils/mailer";
 
-export async function GET(request: Request) {
+export async function POST(request: Request) {
   const mandatoryUserData: MandatoryUserData = await request.json();
 
-  const user = await db.collection("users").findOne({ username: mandatoryUserData.username });
+  const isUserVerified = await AuthManager.verifyUser(mandatoryUserData.username, mandatoryUserData.password);
 
-  if (!user) {
+  if (!isUserVerified) {
+    return NextResponse.json({ error: "Invalid username or password" }, { status: 401 });
+  }
+
+  const userData = await AuthManager.getUserDetails(mandatoryUserData.username);
+
+  if (!userData) {
     return NextResponse.json({ error: "User not found" }, { status: 404 });
   }
 
-  if (user.password !== mandatoryUserData.password) {
-    return NextResponse.json({ error: "Invalid password" }, { status: 401 });
+  const isEmailSent = await mailer.sendVerificationEmail(userData.username, userData.email);
+
+  if (!isEmailSent) {
+    return NextResponse.json({ error: "Failed to send verification email" }, { status: 500 });
   }
 
-  const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET || "default-secret");
-
-  return NextResponse.json({ token });
+  return NextResponse.json({ message: "Verification email sent successfully" }, { status: 200 });
 }
 
-export async function POST(request: Request) {
+export async function PUT(request: Request) {
   const userData: UserCreationData = await request.json();
 
-  const user = await db.collection("users").findOne({ username: userData.username });
+  const user = await AuthManager.getUserDetails(userData.username);
 
   if (user) {
     return NextResponse.json({ error: "User already exists" }, { status: 400 });
   }
 
-  const newUser = await db.collection("users").insertOne(userData);
+  const isEmailSent = await mailer.sendVerificationEmail(userData.username, userData.email);
 
-  const token = jwt.sign({ id: newUser.insertedId }, process.env.JWT_SECRET || "default-secret");
+  if (!isEmailSent) {
+    return NextResponse.json({ error: "Failed to send verification email" }, { status: 500 });
+  }
 
-  return NextResponse.json({ token });
+  await AuthManager.addUser(userData);
+
+  return NextResponse.json({ message: "User created successfully" }, { status: 201 });
 }

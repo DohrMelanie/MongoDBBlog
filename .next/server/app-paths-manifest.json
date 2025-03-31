@@ -1,5 +1,8 @@
 {
-  "/_not-found/page": "app/_not-found/page.js",
-  "/page": "app/page.js",
-  "/signup/page": "app/signup/page.js"
+  "/api/auth/route": "app/api/auth/route.js",
+  "/api/auth/verify/route": "app/api/auth/verify/route.js",
+  "/api/v1/ping/route": "app/api/v1/ping/route.js",
+  "/auth/page": "app/auth/page.js",
+  "/auth/verify/page": "app/auth/verify/page.js",
+  "/page": "app/page.js"
 }
