@@ -1,3 +1,5 @@
+import { ObjectId } from "mongodb";
+
 export type BlogUser = {
     username: string;
     name: {
@@ -24,6 +26,7 @@ export type UserCreationData = {
 }
 
 export type UserDetails = {
+    _id?: ObjectId;
     username: string;
     name: {
         firstname: string;

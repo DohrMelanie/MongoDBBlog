@@ -1,13 +1,11 @@
 import tokenManager from "./token-manager";
 import db from "./mongo";
-
+import { UserDetails } from "@/models/auth";
 class Query {
-    async getUserFromToken(token: string) {
+    async getUserFromToken(token: string) : Promise<UserDetails | null> {
         const user = await tokenManager.getUserFromToken(token);
 
-        console.log(user);
-
-        return db.collection("users").findOne({ username: user });
+        return db.collection("users").findOne({ username: user }) as unknown as UserDetails;
     }
 }
 

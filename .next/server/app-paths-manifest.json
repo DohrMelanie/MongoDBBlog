@@ -1,5 +1,9 @@
 {
+  "/_not-found/page": "app/_not-found/page.js",
   "/api/auth/verify/route": "app/api/auth/verify/route.js",
+  "/api/v1/categories/route": "app/api/v1/categories/route.js",
   "/api/v1/me/route": "app/api/v1/me/route.js",
-  "/page": "app/page.js"
+  "/api/v1/posts/route": "app/api/v1/posts/route.js",
+  "/posts/create/page": "app/posts/create/page.js",
+  "/profile/posts/page": "app/profile/posts/page.js"
 }

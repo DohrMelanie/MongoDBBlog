@@ -669,6 +669,7 @@ function Profile() {
                 method: "POST"
             });
             if (res.ok) {
+                console.log(res);
                 window.location.href = "/";
             }
         } catch (error) {
@@ -690,7 +691,7 @@ function Profile() {
                         children: "Open user menu"
                     }, void 0, false, {
                         fileName: "[project]/src/components/ui/flowbite/nav/profile.tsx",
-                        lineNumber: 59,
+                        lineNumber: 60,
                         columnNumber: 17
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
@@ -699,13 +700,13 @@ function Profile() {
                         alt: "user photo"
                     }, void 0, false, {
                         fileName: "[project]/src/components/ui/flowbite/nav/profile.tsx",
-                        lineNumber: 60,
+                        lineNumber: 61,
                         columnNumber: 17
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/components/ui/flowbite/nav/profile.tsx",
-                lineNumber: 52,
+                lineNumber: 53,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -720,7 +721,7 @@ function Profile() {
                                 children: username
                             }, void 0, false, {
                                 fileName: "[project]/src/components/ui/flowbite/nav/profile.tsx",
-                                lineNumber: 64,
+                                lineNumber: 65,
                                 columnNumber: 21
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -728,13 +729,36 @@ function Profile() {
                                 children: email
                             }, void 0, false, {
                                 fileName: "[project]/src/components/ui/flowbite/nav/profile.tsx",
-                                lineNumber: 65,
+                                lineNumber: 66,
                                 columnNumber: 21
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/components/ui/flowbite/nav/profile.tsx",
-                        lineNumber: 63,
+                        lineNumber: 64,
+                        columnNumber: 17
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
+                        className: "py-2",
+                        "aria-labelledby": "user-menu-create",
+                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
+                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
+                                href: "/posts/create",
+                                className: "block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white",
+                                children: "Create Post"
+                            }, void 0, false, {
+                                fileName: "[project]/src/components/ui/flowbite/nav/profile.tsx",
+                                lineNumber: 70,
+                                columnNumber: 25
+                            }, this)
+                        }, void 0, false, {
+                            fileName: "[project]/src/components/ui/flowbite/nav/profile.tsx",
+                            lineNumber: 69,
+                            columnNumber: 21
+                        }, this)
+                    }, void 0, false, {
+                        fileName: "[project]/src/components/ui/flowbite/nav/profile.tsx",
+                        lineNumber: 68,
                         columnNumber: 17
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
@@ -743,39 +767,9 @@ function Profile() {
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
-                                    href: "/dashboard",
+                                    href: "/profile/posts",
                                     className: "block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white",
-                                    children: "Dashboard"
-                                }, void 0, false, {
-                                    fileName: "[project]/src/components/ui/flowbite/nav/profile.tsx",
-                                    lineNumber: 69,
-                                    columnNumber: 25
-                                }, this)
-                            }, void 0, false, {
-                                fileName: "[project]/src/components/ui/flowbite/nav/profile.tsx",
-                                lineNumber: 68,
-                                columnNumber: 21
-                            }, this),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
-                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
-                                    href: "/settings",
-                                    className: "block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white",
-                                    children: "Settings"
-                                }, void 0, false, {
-                                    fileName: "[project]/src/components/ui/flowbite/nav/profile.tsx",
-                                    lineNumber: 72,
-                                    columnNumber: 25
-                                }, this)
-                            }, void 0, false, {
-                                fileName: "[project]/src/components/ui/flowbite/nav/profile.tsx",
-                                lineNumber: 71,
-                                columnNumber: 21
-                            }, this),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
-                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
-                                    href: "/earnings",
-                                    className: "block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white",
-                                    children: "Earnings"
+                                    children: "Your Posts"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/ui/flowbite/nav/profile.tsx",
                                     lineNumber: 75,
@@ -787,10 +781,10 @@ function Profile() {
                                 columnNumber: 21
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
-                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                    onClick: handleSignOut,
-                                    className: "block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white",
-                                    children: "Sign out"
+                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
+                                    href: "/settings",
+                                    className: "block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white",
+                                    children: "Settings"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/ui/flowbite/nav/profile.tsx",
                                     lineNumber: 78,
@@ -800,17 +794,32 @@ function Profile() {
                                 fileName: "[project]/src/components/ui/flowbite/nav/profile.tsx",
                                 lineNumber: 77,
                                 columnNumber: 21
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
+                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                    onClick: handleSignOut,
+                                    className: "block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white",
+                                    children: "Sign out"
+                                }, void 0, false, {
+                                    fileName: "[project]/src/components/ui/flowbite/nav/profile.tsx",
+                                    lineNumber: 81,
+                                    columnNumber: 25
+                                }, this)
+                            }, void 0, false, {
+                                fileName: "[project]/src/components/ui/flowbite/nav/profile.tsx",
+                                lineNumber: 80,
+                                columnNumber: 21
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/components/ui/flowbite/nav/profile.tsx",
-                        lineNumber: 67,
+                        lineNumber: 73,
                         columnNumber: 17
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/components/ui/flowbite/nav/profile.tsx",
-                lineNumber: 62,
+                lineNumber: 63,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -826,7 +835,7 @@ function Profile() {
                         children: "Open main menu"
                     }, void 0, false, {
                         fileName: "[project]/src/components/ui/flowbite/nav/profile.tsx",
-                        lineNumber: 95,
+                        lineNumber: 98,
                         columnNumber: 17
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
@@ -843,24 +852,24 @@ function Profile() {
                             d: "M1 1h15M1 7h15M1 13h15"
                         }, void 0, false, {
                             fileName: "[project]/src/components/ui/flowbite/nav/profile.tsx",
-                            lineNumber: 97,
+                            lineNumber: 100,
                             columnNumber: 21
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/src/components/ui/flowbite/nav/profile.tsx",
-                        lineNumber: 96,
+                        lineNumber: 99,
                         columnNumber: 17
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/components/ui/flowbite/nav/profile.tsx",
-                lineNumber: 87,
+                lineNumber: 90,
                 columnNumber: 13
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/components/ui/flowbite/nav/profile.tsx",
-        lineNumber: 51,
+        lineNumber: 52,
         columnNumber: 9
     }, this);
 }
@@ -916,8 +925,8 @@ function NavBar() {
                     const res = await fetch("/api/auth/verify");
                     if (res.ok) {
                         setIsLoggedIn(true);
-                        setIsLoading(false);
                     }
+                    setIsLoading(false);
                 }
             }["NavBar.useEffect.ping"];
             ping();
@@ -934,13 +943,13 @@ function NavBar() {
                     className: "rounded-sm"
                 }, void 0, false, {
                     fileName: "[project]/src/components/global/NavBar.tsx",
-                    lineNumber: 35,
+                    lineNumber: 36,
                     columnNumber: 34
                 }, void 0),
                 text: "Rich Money Blogs"
             }, void 0, false, {
                 fileName: "[project]/src/components/global/NavBar.tsx",
-                lineNumber: 35,
+                lineNumber: 36,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$flowbite$2f$nav$2f$section$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
@@ -951,12 +960,12 @@ function NavBar() {
                             children: "Feed"
                         }, void 0, false, {
                             fileName: "[project]/src/components/global/NavBar.tsx",
-                            lineNumber: 38,
+                            lineNumber: 39,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/src/components/global/NavBar.tsx",
-                        lineNumber: 37,
+                        lineNumber: 38,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$flowbite$2f$nav$2f$element$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
@@ -965,59 +974,59 @@ function NavBar() {
                             children: "Trending"
                         }, void 0, false, {
                             fileName: "[project]/src/components/global/NavBar.tsx",
-                            lineNumber: 41,
+                            lineNumber: 42,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/src/components/global/NavBar.tsx",
-                        lineNumber: 40,
+                        lineNumber: 41,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$flowbite$2f$nav$2f$element$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
-                            href: "/about",
-                            children: "About"
+                            href: "/search",
+                            children: "Search"
                         }, void 0, false, {
                             fileName: "[project]/src/components/global/NavBar.tsx",
-                            lineNumber: 44,
+                            lineNumber: 45,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/src/components/global/NavBar.tsx",
-                        lineNumber: 43,
+                        lineNumber: 44,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/components/global/NavBar.tsx",
-                lineNumber: 36,
+                lineNumber: 37,
                 columnNumber: 7
             }, this),
             isLoading ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$flowbite$2f$nav$2f$section$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$flowbite$2f$nav$2f$element$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$flowbite$2f$spinner$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
                         fileName: "[project]/src/components/global/NavBar.tsx",
-                        lineNumber: 50,
+                        lineNumber: 51,
                         columnNumber: 13
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/src/components/global/NavBar.tsx",
-                    lineNumber: 49,
+                    lineNumber: 50,
                     columnNumber: 11
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/components/global/NavBar.tsx",
-                lineNumber: 48,
+                lineNumber: 49,
                 columnNumber: 9
             }, this) : isLoggedIn ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$flowbite$2f$nav$2f$section$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$flowbite$2f$nav$2f$profile$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
                     fileName: "[project]/src/components/global/NavBar.tsx",
-                    lineNumber: 55,
+                    lineNumber: 56,
                     columnNumber: 11
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/components/global/NavBar.tsx",
-                lineNumber: 54,
+                lineNumber: 55,
                 columnNumber: 9
             }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$flowbite$2f$nav$2f$section$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
                 children: [
@@ -1027,12 +1036,12 @@ function NavBar() {
                             children: "Sign Up"
                         }, void 0, false, {
                             fileName: "[project]/src/components/global/NavBar.tsx",
-                            lineNumber: 60,
+                            lineNumber: 61,
                             columnNumber: 13
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/src/components/global/NavBar.tsx",
-                        lineNumber: 59,
+                        lineNumber: 60,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$flowbite$2f$nav$2f$element$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
@@ -1041,24 +1050,24 @@ function NavBar() {
                             children: "Login"
                         }, void 0, false, {
                             fileName: "[project]/src/components/global/NavBar.tsx",
-                            lineNumber: 63,
+                            lineNumber: 64,
                             columnNumber: 13
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/src/components/global/NavBar.tsx",
-                        lineNumber: 62,
+                        lineNumber: 63,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/components/global/NavBar.tsx",
-                lineNumber: 58,
+                lineNumber: 59,
                 columnNumber: 9
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/components/global/NavBar.tsx",
-        lineNumber: 34,
+        lineNumber: 35,
         columnNumber: 5
     }, this);
 }

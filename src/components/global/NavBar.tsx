@@ -21,8 +21,9 @@ export default function NavBar() {
       const res = await fetch("/api/auth/verify");
       if (res.ok) {
         setIsLoggedIn(true);
-        setIsLoading(false);
       }
+
+      setIsLoading(false);
     };
 
     ping();
@@ -41,7 +42,7 @@ export default function NavBar() {
           <Link href="/trending">Trending</Link>
         </Element>
         <Element>
-          <Link href="/about">About</Link>
+          <Link href="/search">Search</Link>
         </Element>
       </Section>
       {isLoading ? (

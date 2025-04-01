@@ -40,6 +40,7 @@ export default function Profile() {
                 method: "POST"
             });
             if (res.ok) {
+                console.log(res);
                 window.location.href = "/";
             }
         } catch (error) {
@@ -64,15 +65,17 @@ export default function Profile() {
                     <span className="block text-sm text-gray-900 dark:text-white">{username}</span>
                     <span className="block text-sm text-gray-500 truncate dark:text-gray-400">{email}</span>
                 </div>
+                <ul className="py-2" aria-labelledby="user-menu-create">
+                    <li>
+                        <Link href="/posts/create" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Create Post</Link>
+                    </li>
+                </ul>
                 <ul className="py-2" aria-labelledby="user-menu-button">
                     <li>
-                        <Link href="/dashboard" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Dashboard</Link>
+                        <Link href="/profile/posts" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Your Posts</Link>
                     </li>
                     <li>
                         <Link href="/settings" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Settings</Link>
-                    </li>
-                    <li>
-                        <Link href="/earnings" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Earnings</Link>
                     </li>
                     <li>
                         <button 
