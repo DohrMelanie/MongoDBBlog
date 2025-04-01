@@ -9,6 +9,7 @@ import Slider from "@/components/ui/flowbite/form/slider";
 import { useState, useEffect } from "react";
 import categoryManager from "@/utils/client/category-manager";
 import blogManager from "@/utils/client/blog-manager";
+import { useRouter } from "next/navigation";
 
 export default function PostForm() {
     const [category, setCategory] = useState<string | null>(null);
@@ -16,7 +17,8 @@ export default function PostForm() {
     const [categories, setCategories] = useState<string[]>([]);
     const [title, setTitle] = useState<string>("");
     const [content, setContent] = useState<string>("");
-
+    const router = useRouter();
+    
     useEffect(() => {
         categoryManager.getCategories().then((categories) => {
             setCategories(categories);
@@ -32,7 +34,7 @@ export default function PostForm() {
             commentsAllowed,
             content
         }).then((post) => {
-            console.log(post);
+            router.push(`/posts/${post._id}`);
         });
     }
 

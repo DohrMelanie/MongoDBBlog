@@ -166,6 +166,11 @@ class Query {
             username: user
         });
     }
+    async getPostsByUserId(userId) {
+        return __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$mongo$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["default"].collection("BlogEntries").find({
+            author: userId
+        }).toArray();
+    }
 }
 const __TURBOPACK__default__export__ = new Query();
 }}),

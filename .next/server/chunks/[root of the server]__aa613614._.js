@@ -85,6 +85,8 @@ __turbopack_context__.s({
     "default": (()=>__TURBOPACK__default__export__)
 });
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$mongo$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/utils/mongo.ts [app-route] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$externals$5d2f$mongodb__$5b$external$5d$__$28$mongodb$2c$__cjs$29$__ = __turbopack_context__.i("[externals]/mongodb [external] (mongodb, cjs)");
+;
 ;
 class PostManager {
     async createPost(post, user) {
@@ -103,6 +105,12 @@ class PostManager {
             impressionCount: 0
         });
         return blogEntry;
+    }
+    async getPost(id) {
+        const post = await __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$mongo$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["default"].collection("BlogEntries").findOne({
+            _id: new __TURBOPACK__imported__module__$5b$externals$5d2f$mongodb__$5b$external$5d$__$28$mongodb$2c$__cjs$29$__["ObjectId"](id)
+        });
+        return post;
     }
 }
 const __TURBOPACK__default__export__ = new PostManager();
@@ -196,6 +204,11 @@ class Query {
         return __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$mongo$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["default"].collection("users").findOne({
             username: user
         });
+    }
+    async getPostsByUserId(userId) {
+        return __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$mongo$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["default"].collection("posts").find({
+            userId
+        }).toArray();
     }
 }
 const __TURBOPACK__default__export__ = new Query();

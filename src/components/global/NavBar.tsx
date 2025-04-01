@@ -32,9 +32,9 @@ export default function NavBar() {
   const pathname = usePathname();
   
   return (
-    <Nav>
-      <LogoElement href="/" svg={<Logo width={50} height={50} className="rounded-sm" />} text="Rich Money Blogs" />
-      <Section>
+    <Nav className="justify-between" childrenClassName="w-full">
+      <LogoElement className="flex-1" href="/" svg={<Logo width={50} height={50} className="rounded-sm" />} text="Rich Money Blogs" />
+      <Section className="justify-center flex-1">
         <Element>
           <Link href="/">Feed</Link>
         </Element>
@@ -46,17 +46,17 @@ export default function NavBar() {
         </Element>
       </Section>
       {isLoading ? (
-        <Section>
+        <Section className="justify-end flex-1">
           <Element>
             <Spinner />
           </Element>
         </Section>
       ) : isLoggedIn ? (
-        <Section>
+        <Section className="justify-end flex-1">
           <Profile />
         </Section>
       ) : (
-        <Section>
+        <Section className="justify-end flex-1">
           <Element>
             <Link href="/signup">Sign Up</Link>
           </Element>

@@ -3,6 +3,7 @@ import PostManager from "@/utils/post-manager";
 import { cookies } from "next/headers";
 import Query from "@/utils/query";
 import { BlogEntryCreationData } from "@/models/blog";
+import blogManager from "@/utils/client/blog-manager";
 
 export async function POST(request: NextRequest) {
     const cookieStore = await cookies();

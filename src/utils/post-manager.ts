@@ -1,6 +1,7 @@
 import { BlogEntryCreationData } from "@/models/blog";
 import db from "./mongo";
 import { UserDetails } from "@/models/auth";
+import { ObjectId } from "mongodb";
 
 class PostManager {
     async createPost(post: BlogEntryCreationData, user: UserDetails) {
@@ -18,8 +19,13 @@ class PostManager {
             editDates: [],
             impressionCount: 0
         });
-        
+    
         return blogEntry;
+    }
+
+    async getPost(id: string) {
+        const post = await db.collection("BlogEntries").findOne({ _id: new ObjectId(id) });
+        return post;
     }
 }
 
