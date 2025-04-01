@@ -1,13 +1,11 @@
 {
   "pages": {
-    "/auth/page": [
+    "/_not-found/page": [
       "static/chunks/[root of the server]__140ccadf._.css",
       "static/chunks/[turbopack]_browser_dev_hmr-client_hmr-client_ts_3e5a8d4b._.js",
       "static/chunks/node_modules_next_f75aed9e._.js",
       "static/chunks/src_components_4af68c69._.js",
       "static/chunks/src_app_layout_tsx_f0e4c1a2._.js",
-      "static/chunks/src_components_2e46804e._.js",
-      "static/chunks/src_app_auth_page_tsx_5812d97c._.js",
       "static/chunks/[turbopack]_browser_dev_hmr-client_hmr-client_ts_49a6ea35._.js",
       "static/chunks/node_modules_next_dist_compiled_2ce9398a._.js",
       "static/chunks/node_modules_next_dist_client_43e3ffb8._.js",
@@ -16,14 +14,14 @@
       "static/chunks/_e69f0d32._.js",
       "static/chunks/_be317ff2._.js"
     ],
-    "/auth/verify/page": [
+    "/auth/page": [
       "static/chunks/[root of the server]__140ccadf._.css",
       "static/chunks/[turbopack]_browser_dev_hmr-client_hmr-client_ts_3e5a8d4b._.js",
       "static/chunks/node_modules_next_f75aed9e._.js",
       "static/chunks/src_components_4af68c69._.js",
       "static/chunks/src_app_layout_tsx_f0e4c1a2._.js",
-      "static/chunks/src_components_321bac85._.js",
-      "static/chunks/src_app_auth_verify_page_tsx_5812d97c._.js",
+      "static/chunks/src_components_2e46804e._.js",
+      "static/chunks/src_app_auth_page_tsx_5812d97c._.js",
       "static/chunks/[turbopack]_browser_dev_hmr-client_hmr-client_ts_49a6ea35._.js",
       "static/chunks/node_modules_next_dist_compiled_2ce9398a._.js",
       "static/chunks/node_modules_next_dist_client_43e3ffb8._.js",
@@ -52,7 +50,8 @@
       "static/chunks/node_modules_next_f75aed9e._.js",
       "static/chunks/src_components_4af68c69._.js",
       "static/chunks/src_app_layout_tsx_f0e4c1a2._.js",
-      "static/chunks/src_37ab4532._.js",
+      "static/chunks/node_modules_30edef16._.js",
+      "static/chunks/src_8b13da5b._.js",
       "static/chunks/src_app_posts_[id]_page_tsx_5812d97c._.js",
       "static/chunks/[turbopack]_browser_dev_hmr-client_hmr-client_ts_49a6ea35._.js",
       "static/chunks/node_modules_next_dist_compiled_2ce9398a._.js",
@@ -86,6 +85,22 @@
       "static/chunks/src_app_layout_tsx_f0e4c1a2._.js",
       "static/chunks/src_73defab1._.js",
       "static/chunks/src_app_profile_posts_page_tsx_5812d97c._.js",
+      "static/chunks/[turbopack]_browser_dev_hmr-client_hmr-client_ts_49a6ea35._.js",
+      "static/chunks/node_modules_next_dist_compiled_2ce9398a._.js",
+      "static/chunks/node_modules_next_dist_client_43e3ffb8._.js",
+      "static/chunks/node_modules_next_dist_3bfaed20._.js",
+      "static/chunks/node_modules_@swc_helpers_cjs_00636ac3._.js",
+      "static/chunks/_e69f0d32._.js",
+      "static/chunks/_be317ff2._.js"
+    ],
+    "/signup/page": [
+      "static/chunks/[root of the server]__140ccadf._.css",
+      "static/chunks/[turbopack]_browser_dev_hmr-client_hmr-client_ts_3e5a8d4b._.js",
+      "static/chunks/node_modules_next_f75aed9e._.js",
+      "static/chunks/src_components_4af68c69._.js",
+      "static/chunks/src_app_layout_tsx_f0e4c1a2._.js",
+      "static/chunks/src_components_1b97a591._.js",
+      "static/chunks/src_app_signup_page_tsx_5812d97c._.js",
       "static/chunks/[turbopack]_browser_dev_hmr-client_hmr-client_ts_49a6ea35._.js",
       "static/chunks/node_modules_next_dist_compiled_2ce9398a._.js",
       "static/chunks/node_modules_next_dist_client_43e3ffb8._.js",

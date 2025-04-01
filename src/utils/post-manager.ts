@@ -23,8 +23,8 @@ class PostManager {
         return blogEntry;
     }
 
-    async getPost(id: string) {
-        const post = await db.collection("BlogEntries").findOne({ _id: new ObjectId(id) });
+    async getPost(id: ObjectId) {
+        const post = await db.collection("BlogEntries").findOne({ _id: id });
         return post;
     }
 }

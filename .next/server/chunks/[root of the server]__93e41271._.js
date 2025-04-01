@@ -45,7 +45,15 @@ const mod = __turbopack_context__.x("next/dist/server/app-render/work-async-stor
 
 module.exports = mod;
 }}),
-"[project]/src/utils/client/blog-manager.ts [app-route] (ecmascript)": ((__turbopack_context__) => {
+"[externals]/mongodb [external] (mongodb, cjs)": (function(__turbopack_context__) {
+
+var { g: global, __dirname, m: module, e: exports } = __turbopack_context__;
+{
+const mod = __turbopack_context__.x("mongodb", () => require("mongodb"));
+
+module.exports = mod;
+}}),
+"[project]/src/utils/mongo.ts [app-route] (ecmascript)": ((__turbopack_context__) => {
 "use strict";
 
 var { g: global, __dirname } = __turbopack_context__;
@@ -53,24 +61,49 @@ var { g: global, __dirname } = __turbopack_context__;
 __turbopack_context__.s({
     "default": (()=>__TURBOPACK__default__export__)
 });
-class BlogManager {
-    async getPosts() {
-        const response = await fetch("/api/v1/posts");
-        return response.json();
+var __TURBOPACK__imported__module__$5b$externals$5d2f$mongodb__$5b$external$5d$__$28$mongodb$2c$__cjs$29$__ = __turbopack_context__.i("[externals]/mongodb [external] (mongodb, cjs)");
+;
+const uri = process.env.MONGODB_URI || "mongodb://localhost:27017";
+const client = new __TURBOPACK__imported__module__$5b$externals$5d2f$mongodb__$5b$external$5d$__$28$mongodb$2c$__cjs$29$__["MongoClient"](uri);
+const db = client.db("blog");
+const __TURBOPACK__default__export__ = db;
+}}),
+"[project]/src/utils/post-manager.ts [app-route] (ecmascript)": ((__turbopack_context__) => {
+"use strict";
+
+var { g: global, __dirname } = __turbopack_context__;
+{
+__turbopack_context__.s({
+    "default": (()=>__TURBOPACK__default__export__)
+});
+var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$mongo$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/utils/mongo.ts [app-route] (ecmascript)");
+;
+class PostManager {
+    async createPost(post, user) {
+        const category = await __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$mongo$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["default"].collection("BlogCategories").findOne({
+            name: post.category
+        });
+        if (!category) {
+            throw new Error("Category not found");
+        }
+        const blogEntry = await __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$mongo$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["default"].collection("BlogEntries").insertOne({
+            ...post,
+            category: category._id,
+            author: user._id,
+            creationDate: new Date(),
+            editDates: [],
+            impressionCount: 0
+        });
+        return blogEntry;
     }
     async getPost(id) {
-        const response = await fetch(`/api/v1/posts/${id}`);
-        return response.json();
-    }
-    async createPost(post) {
-        const response = await fetch("/api/v1/posts", {
-            method: "POST",
-            body: JSON.stringify(post)
+        const post = await __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$mongo$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["default"].collection("BlogEntries").findOne({
+            _id: id
         });
-        return response.json();
+        return post;
     }
 }
-const __TURBOPACK__default__export__ = new BlogManager();
+const __TURBOPACK__default__export__ = new PostManager();
 }}),
 "[externals]/next/dist/server/app-render/after-task-async-storage.external.js [external] (next/dist/server/app-render/after-task-async-storage.external.js, cjs)": (function(__turbopack_context__) {
 
@@ -88,21 +121,20 @@ var { g: global, __dirname } = __turbopack_context__;
 __turbopack_context__.s({
     "GET": (()=>GET)
 });
-var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$client$2f$blog$2d$manager$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/utils/client/blog-manager.ts [app-route] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$post$2d$manager$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/utils/post-manager.ts [app-route] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/server.js [app-route] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$externals$5d2f$mongodb__$5b$external$5d$__$28$mongodb$2c$__cjs$29$__ = __turbopack_context__.i("[externals]/mongodb [external] (mongodb, cjs)");
+;
 ;
 ;
 async function GET(request, { params }) {
     const { id } = await params;
     try {
-        console.log(id);
-        const post = await __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$client$2f$blog$2d$manager$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["default"].getPost(id);
-        console.log(post);
+        const post = await __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$post$2d$manager$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["default"].getPost(new __TURBOPACK__imported__module__$5b$externals$5d2f$mongodb__$5b$external$5d$__$28$mongodb$2c$__cjs$29$__["ObjectId"](id));
         return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json(post, {
             status: 200
         });
     } catch (error) {
-        console.log(error);
         return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json({
             error: "Post not found"
         }, {
@@ -114,4 +146,4 @@ async function GET(request, { params }) {
 
 };
 
-//# sourceMappingURL=%5Broot%20of%20the%20server%5D__ba070b10._.js.map
+//# sourceMappingURL=%5Broot%20of%20the%20server%5D__93e41271._.js.map

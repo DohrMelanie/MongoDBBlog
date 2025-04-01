@@ -934,7 +934,7 @@ function NavBar() {
     }["NavBar.useEffect"], []);
     const pathname = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["usePathname"])();
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$flowbite$2f$nav$2f$nav$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
-        className: "justify-between",
+        className: "justify-between fixed top-0 left-0 right-0 z-50 h-20",
         childrenClassName: "w-full",
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$flowbite$2f$nav$2f$logo$2d$element$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {

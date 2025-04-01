@@ -32,7 +32,7 @@ export default function NavBar() {
   const pathname = usePathname();
   
   return (
-    <Nav className="justify-between" childrenClassName="w-full">
+    <Nav className="justify-between fixed top-0 left-0 right-0 z-50 h-20" childrenClassName="w-full">
       <LogoElement className="flex-1" href="/" svg={<Logo width={50} height={50} className="rounded-sm" />} text="Rich Money Blogs" />
       <Section className="justify-center flex-1">
         <Element>

@@ -426,6 +426,10 @@
     bottom: calc(var(--spacing) * 0);
   }
 
+  .left-0 {
+    left: calc(var(--spacing) * 0);
+  }
+
   .left-1 {
     left: calc(var(--spacing) * 1);
   }
@@ -566,6 +570,10 @@
     margin-inline-start: calc(var(--spacing) * 3);
   }
 
+  .ms-6 {
+    margin-inline-start: calc(var(--spacing) * 6);
+  }
+
   .me-2 {
     margin-inline-end: calc(var(--spacing) * 2);
   }
@@ -576,6 +584,10 @@
 
   .mt-4 {
     margin-top: calc(var(--spacing) * 4);
+  }
+
+  .mt-20 {
+    margin-top: calc(var(--spacing) * 20);
   }
 
   .mr-2 {
@@ -596,6 +608,10 @@
 
   .mb-5 {
     margin-bottom: calc(var(--spacing) * 5);
+  }
+
+  .mb-10 {
+    margin-bottom: calc(var(--spacing) * 10);
   }
 
   .box-border {
@@ -753,6 +769,26 @@
     height: calc(var(--spacing) * 16);
   }
 
+  .h-20 {
+    height: calc(var(--spacing) * 20);
+  }
+
+  .h-56 {
+    height: calc(var(--spacing) * 56);
+  }
+
+  .h-64 {
+    height: calc(var(--spacing) * 64);
+  }
+
+  .h-72 {
+    height: calc(var(--spacing) * 72);
+  }
+
+  .h-80 {
+    height: calc(var(--spacing) * 80);
+  }
+
   .h-\[8\%\] {
     height: 8%;
   }
@@ -793,8 +829,32 @@
     min-height: calc(var(--spacing) * 12);
   }
 
+  .min-h-20 {
+    min-height: calc(var(--spacing) * 20);
+  }
+
+  .min-h-\[25vh\] {
+    min-height: 25vh;
+  }
+
+  .min-h-\[30vh\] {
+    min-height: 30vh;
+  }
+
+  .min-h-\[50vh\] {
+    min-height: 50vh;
+  }
+
   .min-h-screen {
     min-height: 100vh;
+  }
+
+  .w-1 {
+    width: calc(var(--spacing) * 1);
+  }
+
+  .w-1\/2 {
+    width: 50%;
   }
 
   .w-2 {
@@ -849,6 +909,10 @@
     width: calc(var(--spacing) * 44);
   }
 
+  .w-48 {
+    width: calc(var(--spacing) * 48);
+  }
+
   .w-\[25\%\] {
     width: 25%;
   }
@@ -899,6 +963,14 @@
 
   .max-w-xs {
     max-width: var(--container-xs);
+  }
+
+  .min-w-1 {
+    min-width: calc(var(--spacing) * 1);
+  }
+
+  .min-w-1\/2 {
+    min-width: 50%;
   }
 
   .min-w-8 {
@@ -1122,6 +1194,10 @@
     flex-wrap: wrap;
   }
 
+  .items-baseline {
+    align-items: baseline;
+  }
+
   .items-center {
     align-items: center;
   }
@@ -1261,6 +1337,10 @@
 
   .overflow-visible {
     overflow: visible;
+  }
+
+  .overflow-x-auto {
+    overflow-x: auto;
   }
 
   .overflow-y-auto {
@@ -2887,6 +2967,12 @@
     .motion-reduce\:after\:transition-none:after {
       content: var(--tw-content);
       transition-property: none;
+    }
+  }
+
+  @media (width < 40rem) {
+    .max-sm\:flex-col {
+      flex-direction: column;
     }
   }
 

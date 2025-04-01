@@ -1,8 +1,11 @@
 import { BlogEntry } from "@/models/blog";
+import { useRouter } from "next/navigation";
 
 export default function PostSmall({ post }: { post: BlogEntry }) {
+    const router = useRouter();
+
     return (
-        <div className="flex flex-col gap-2 w-full text-secondary-700 hover:bg-primary-100 p-4 rounded-md">
+        <div onClick={() => router.push(`/posts/${post._id}`)} className="flex flex-col gap-2 w-full text-secondary-700 hover:bg-primary-100 p-4 rounded-md">
             <h1 className="text-2xl font-bold">{post.title}</h1>
             <p className="text-sm text-secondary-500">{post.description}</p>
         </div>

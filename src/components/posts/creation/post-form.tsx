@@ -39,9 +39,9 @@ export default function PostForm() {
     }
 
     return (
-        <Form className="flex flex-col items-center justify-center gap-4 w-full" onSubmit={handleSubmit}>
+        <Form className="flex flex-col items-center justify-center gap-4 min-w-1/2" onSubmit={handleSubmit}>
             <Input label="Title" type="text" name="title" value={title} onChange={(e) => setTitle(e.target.value)} />
-            <div className="flex flex-row justify-evenly items-center w-full">
+            <div className="flex flex-row justify-evenly items-center gap-4 w-full max-sm:flex-col">
                 <Dropdown label="Category" name="category" options={categories} onUpdate={setCategory} />
                 <Slider label="Allow Comments" name="allowComments" min={0} max={1000} step={1} defaultValue={500} onChange={(val) => val > 500 ? setCommentsAllowed(true) : setCommentsAllowed(false)} truthColor={commentsAllowed} />
             </div>
