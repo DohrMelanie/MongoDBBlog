@@ -192,8 +192,24 @@ async function GET(request) {
     const cookieStore = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$headers$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["cookies"])();
     const token = cookieStore.get("token");
     const user = await __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$query$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["default"].getUserFromToken(token.value);
+    console.log(user);
     const posts = await __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$query$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["default"].getPostsByUserId(user._id);
-    return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json(posts);
+    const postsDto = posts.map((post)=>({
+            _id: post._id,
+            title: post.title,
+            description: post.description,
+            author: {
+                _id: user._id,
+                username: user.username,
+                name: user.name
+            },
+            creationDate: post.creationDate,
+            editDates: post.editDates,
+            impressionCount: post.impressionCount,
+            content: post.content,
+            commentsAllowed: post.commentsAllowed
+        }));
+    return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json(postsDto);
 }
 }}),
 

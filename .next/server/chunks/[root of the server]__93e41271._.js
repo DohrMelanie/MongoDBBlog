@@ -102,6 +102,11 @@ class PostManager {
         });
         return post;
     }
+    async deletePost(id) {
+        await __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$mongo$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["default"].collection("BlogEntries").deleteOne({
+            _id: id
+        });
+    }
 }
 const __TURBOPACK__default__export__ = new PostManager();
 }}),
@@ -119,6 +124,7 @@ module.exports = mod;
 var { g: global, __dirname } = __turbopack_context__;
 {
 __turbopack_context__.s({
+    "DELETE": (()=>DELETE),
     "GET": (()=>GET)
 });
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$post$2d$manager$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/utils/post-manager.ts [app-route] (ecmascript)");
@@ -132,6 +138,23 @@ async function GET(request, { params }) {
     try {
         const post = await __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$post$2d$manager$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["default"].getPost(new __TURBOPACK__imported__module__$5b$externals$5d2f$mongodb__$5b$external$5d$__$28$mongodb$2c$__cjs$29$__["ObjectId"](id));
         return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json(post, {
+            status: 200
+        });
+    } catch (error) {
+        return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json({
+            error: "Post not found"
+        }, {
+            status: 404
+        });
+    }
+}
+async function DELETE(request, { params }) {
+    const { id } = await params;
+    try {
+        await __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$utils$2f$post$2d$manager$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["default"].deletePost(new __TURBOPACK__imported__module__$5b$externals$5d2f$mongodb__$5b$external$5d$__$28$mongodb$2c$__cjs$29$__["ObjectId"](id));
+        return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json({
+            message: "Post deleted"
+        }, {
             status: 200
         });
     } catch (error) {

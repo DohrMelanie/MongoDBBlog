@@ -1,11 +1,11 @@
 "use client";
 
-import { BlogEntry } from "@/models/blog";
+import { BlogPostDto } from "@/models/dtos";
 import { useEffect, useState } from "react";
 import PostList from "@/components/posts/list/list";
 
 export default function ProfilePosts() {
-    const [posts, setPosts] = useState<BlogEntry[]>([]);
+    const [posts, setPosts] = useState<BlogPostDto[]>([]);
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {

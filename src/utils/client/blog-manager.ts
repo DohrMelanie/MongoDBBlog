@@ -1,14 +1,15 @@
-import { BlogEntryCreationData } from "@/models/blog";
+import { BlogEntry, BlogEntryCreationData } from "@/models/blog";
+import { BlogPostDto } from "@/models/dtos";
 
 class BlogManager {
     async getPosts() {
         const response = await fetch("/api/v1/posts");
-        return response.json();
+        return response.json() as Promise<BlogPostDto[]>;
     }
 
     async getPost(id: string) {
         const response = await fetch(`/api/v1/posts/${id}`);
-        return response.json();
+        return response.json() as Promise<BlogPostDto>;
     }
 
     async createPost(post: BlogEntryCreationData) {
@@ -16,7 +17,7 @@ class BlogManager {
             method: "POST",
             body: JSON.stringify(post)
         });
-        return response.json();
+        return response.json() as Promise<BlogEntry>;
     }
 }
 

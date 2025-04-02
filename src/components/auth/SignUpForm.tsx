@@ -27,8 +27,10 @@ export default function SignUpForm() {
     const user = {
       username,
       email,
-      first_name,
-      last_name,
+      name: {
+        firstname: first_name,
+        lastname: last_name
+      },
       password
     }
     

@@ -1,10 +1,10 @@
-import { BlogEntry } from "@/models/blog";
 import PostSmall from "../post-small";
 import ListSkeleton from "@/components/ui/flowbite/skeletons/list-skeleton";
+import { BlogPostDto } from "@/models/dtos";
 
-export default function PostList({ posts, isLoading, className }: { posts: BlogEntry[], isLoading: boolean, className?: string }) {
+export default function PostList({ posts, isLoading, className }: { posts: BlogPostDto[], isLoading: boolean, className?: string }) {
     return (
-        <div className={`flex flex-col gap-4 ${className} border border-primary-200 p-4 overflow-y-auto max-h-[500px]`}>
+        <div className={`flex flex-col gap-4 ${className} border border-primary-200 p-4 max-h-[500px]`}>
             {isLoading ? (
                 <ListSkeleton />
             ) : (

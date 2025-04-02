@@ -13,5 +13,6 @@ export async function POST(request: NextRequest) {
 
     const post : BlogEntryCreationData = await request.json();
     const createdPost = await PostManager.createPost(post, user!);
+    
     return NextResponse.json(createdPost, { status: 201 });
 }
