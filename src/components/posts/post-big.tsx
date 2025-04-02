@@ -41,7 +41,7 @@ export default function PostBig({ post }: { post: BlogPostDto }) {
                     </Markdown>
                 </div>
             </div>
-            <CommentsList comments={post.comments} />
+            <CommentsList comments={post.comments} postId={post._id!.toString()} />
         </div>
     )
 }

@@ -11,8 +11,6 @@ export async function GET(request: NextRequest) {
 
     const user = await query.getUserFromToken(token!.value);
 
-    console.log(user);
-
     const posts = await query.getPostsByUserId(user!._id!);
     
     const comments = await Promise.all(posts.map(async (post) => {

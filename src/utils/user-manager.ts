@@ -4,7 +4,7 @@ import { UserDetails } from "@/models/auth";
 
 class UserManager {
     public async getUserById(id: ObjectId) {
-        const user = await db.collection("users").findOne({ _id: id });
+        const user = await db.collection("BlogUsers").findOne({ _id: id });
 
         if (!user) {
             throw new Error("User not found");
@@ -14,7 +14,7 @@ class UserManager {
     }
 
     public async getUserByUsername(username: string) {
-        const user = await db.collection("users").findOne({ username });
+        const user = await db.collection("BlogUsers").findOne({ username });
 
         if (!user) {
             throw new Error("User not found");

@@ -8,7 +8,7 @@ class Query {
     async getUserFromToken(token: string) : Promise<UserDetails | null> {
         const user = await tokenManager.getUserFromToken(token);
 
-        return db.collection("users").findOne({ username: user }) as unknown as UserDetails;
+        return db.collection("BlogUsers").findOne({ username: user }) as unknown as UserDetails;
     }
 
     async getPostsByUserId(userId: ObjectId) : Promise<BlogEntry[]> {

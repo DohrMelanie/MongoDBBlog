@@ -13,10 +13,8 @@ export async function GET(request: NextRequest, { params }: { params: { id: stri
 
         const author = await userManager.getUserById(post.author);
 
-        const comments = await commentManager.getCommentsByPostId(post._id!);
-
         const commentsDto = await commentManager.generatePostsCommentsDto([post]);
-        
+
         const postDto: BlogPostDto = {
             _id: post._id!,
             title: post.title,

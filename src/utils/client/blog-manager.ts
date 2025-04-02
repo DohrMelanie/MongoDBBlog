@@ -1,5 +1,5 @@
 import { BlogEntry, BlogEntryCreationData } from "@/models/blog";
-import { BlogPostDto } from "@/models/dtos";
+import { BlogPostDto, CommentDto } from "@/models/dtos";
 
 class BlogManager {
     async getPosts() {
@@ -18,6 +18,14 @@ class BlogManager {
             body: JSON.stringify(post)
         });
         return response.json() as Promise<BlogEntry>;
+    }
+
+    async createComment(postId: string, comment: string) {
+        const response = await fetch(`/api/v1/posts/${postId}/comments`, {
+            method: "POST",
+            body: JSON.stringify({ comment })
+        });
+        return response.json() as Promise<CommentDto>;
     }
 }
 

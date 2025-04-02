@@ -9,12 +9,11 @@ interface ChatBubbleProps {
 }
 
 export default function ChatBubble({
-    avatarSrc = "/docs/images/people/profile-picture-3.jpg",
+    avatarSrc = "https://picsum.photos/200",
     avatarAlt = "User avatar",
     username,
     timestamp,
     message,
-    status,
     maxWidth = "320px"
 }: ChatBubbleProps) {
     return (
@@ -26,7 +25,6 @@ export default function ChatBubble({
                     <span className="text-sm font-normal text-gray-500 dark:text-gray-400">{timestamp}</span>
                 </div>
                 <p className="text-sm font-normal py-2.5 text-gray-900 dark:text-white">{message}</p>
-                {status && <span className="text-sm font-normal text-gray-500 dark:text-gray-400">{status}</span>}
             </div>
         </div>
     )

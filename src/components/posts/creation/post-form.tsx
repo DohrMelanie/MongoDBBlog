@@ -34,7 +34,7 @@ export default function PostForm() {
             commentsAllowed,
             content
         }).then((post) => {
-            router.push(`/posts/${post._id}`);
+            router.push(`/profile/posts`); 
         });
     }
 
