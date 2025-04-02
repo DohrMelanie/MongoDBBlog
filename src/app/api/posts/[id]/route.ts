@@ -3,6 +3,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { ObjectId } from "mongodb";
 import { BlogPostDto } from "@/models/dtos";
 import userManager from "@/utils/user-manager";
+import commentManager from "@/utils/comment-manager";
 
 export async function GET(request: NextRequest, { params }: { params: { id: string } }) {
     const { id } = await params;
@@ -12,6 +13,10 @@ export async function GET(request: NextRequest, { params }: { params: { id: stri
 
         const author = await userManager.getUserById(post.author);
 
+        const comments = await commentManager.getCommentsByPostId(post._id!);
+
+        const commentsDto = await commentManager.generatePostsCommentsDto([post]);
+        
         const postDto: BlogPostDto = {
             _id: post._id!,
             title: post.title,
@@ -25,7 +30,8 @@ export async function GET(request: NextRequest, { params }: { params: { id: stri
             editDates: post.editDates,
             impressionCount: post.impressionCount,
             content: post.content,
-            commentsAllowed: post.commentsAllowed
+            commentsAllowed: post.commentsAllowed,
+            comments: commentsDto
         }
 
         return NextResponse.json(postDto, { status: 200 });

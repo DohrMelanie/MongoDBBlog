@@ -10,6 +10,14 @@ export interface BlogPostDto {
     impressionCount: number;
     content: string;
     commentsAllowed: boolean;
+    comments: CommentDto[];
+}
+
+export interface CommentDto {
+    _id: ObjectId;
+    text: string;
+    author: PublicUserDetailsDto;
+    creationDate: Date;
 }
 
 export interface PublicUserDetailsDto {

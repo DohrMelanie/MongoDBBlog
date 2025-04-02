@@ -1,6 +1,6 @@
 import { BlogPostDto } from "@/models/dtos";
 import Markdown from "react-markdown";
-
+import CommentsList from "./comments-list";
 interface CodeProps extends React.HTMLAttributes<HTMLElement> {
     inline?: boolean;
     node?: any;
@@ -41,6 +41,7 @@ export default function PostBig({ post }: { post: BlogPostDto }) {
                     </Markdown>
                 </div>
             </div>
+            <CommentsList comments={post.comments} />
         </div>
     )
 }
