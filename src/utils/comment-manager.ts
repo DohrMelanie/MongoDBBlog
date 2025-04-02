@@ -21,6 +21,15 @@ class CommentManager {
         return comments as Comment[];
     }
 
+    async deleteComment(commentId: ObjectId) {
+        await db.collection("Comments").deleteOne({ _id: commentId });
+    }
+
+    async getCommentById(commentId: ObjectId) {
+        const comment = await db.collection("Comments").findOne({ _id: commentId });
+        return comment as Comment;
+    }
+
     async generatePostsCommentsDto(posts: BlogEntry[]) : Promise<CommentDto[]> {
         const postsCommentsDto = await Promise.all(posts.map(async (post) => {
             const comments = await this.getCommentsByPostId(post._id!);
