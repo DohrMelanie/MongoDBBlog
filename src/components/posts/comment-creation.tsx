@@ -10,7 +10,7 @@ export default function CommentCreation({ postId }: { postId: string }) {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [isLoading, setIsLoading] = useState(true);
     const [comment, setComment] = useState("");
-
+    
     useEffect(() => {
         const ping = async () => {
             const res = await fetch("/api/auth/verify");
@@ -38,10 +38,16 @@ export default function CommentCreation({ postId }: { postId: string }) {
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         blogManager.createComment(postId, comment);
+
+        setComment("");
+
+        setTimeout(() => {
+            window.location.href = window.location.href;
+        }, 500);
     }
 
     return (
-        <Form className="flex flex-row gap-2 justify-center items-center" onSubmit={handleSubmit}>
+        <Form className="flex flex-row gap-2 justify-center items-center mb-8" onSubmit={handleSubmit}>
             <Input label="Comment" type="text" name="text" value={comment} onChange={(e) => setComment(e.target.value)} />
             <Button type="submit">Post</Button>
         </Form>
