@@ -20,3 +20,13 @@ export interface PublicUserDetailsDto {
         lastname: string;
     };
 }
+
+export interface PublicUserPostDetailsDto {
+    _id: ObjectId;
+    username: string;
+    name: {
+        firstname: string;
+        lastname: string;
+    };
+    posts: BlogPostDto[];
+}

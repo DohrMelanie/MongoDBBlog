@@ -3,12 +3,12 @@ import { BlogPostDto } from "@/models/dtos";
 
 class BlogManager {
     async getPosts() {
-        const response = await fetch("/api/v1/posts");
+        const response = await fetch("/api/posts");
         return response.json() as Promise<BlogPostDto[]>;
     }
 
     async getPost(id: string) {
-        const response = await fetch(`/api/v1/posts/${id}`);
+        const response = await fetch(`/api/posts/${id}`);
         return response.json() as Promise<BlogPostDto>;
     }
 

@@ -1,8 +1,17 @@
 {
+  "/_not-found/page": "app/_not-found/page.js",
   "/api/auth/verify/route": "app/api/auth/verify/route.js",
+  "/api/posts/[id]/route": "app/api/posts/[id]/route.js",
+  "/api/users/[id]/route": "app/api/users/[id]/route.js",
+  "/api/v1/categories/route": "app/api/v1/categories/route.js",
   "/api/v1/me/posts/route": "app/api/v1/me/posts/route.js",
   "/api/v1/me/route": "app/api/v1/me/route.js",
   "/api/v1/posts/[id]/route": "app/api/v1/posts/[id]/route.js",
+  "/page": "app/page.js",
   "/posts/[id]/page": "app/posts/[id]/page.js",
-  "/profile/posts/page": "app/profile/posts/page.js"
+  "/posts/create/page": "app/posts/create/page.js",
+  "/profile/[id]/page": "app/profile/[id]/page.js",
+  "/profile/posts/page": "app/profile/posts/page.js",
+  "/search/page": "app/search/page.js",
+  "/users/[id]/page": "app/users/[id]/page.js"
 }
