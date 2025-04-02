@@ -15,3 +15,12 @@ export async function POST(request: NextRequest) {
     
     return NextResponse.json(createdPost, { status: 201 });
 }
+
+export async function GET(request: NextRequest) {
+    const { searchParams } = new URL(request.url);
+    const page = parseInt(searchParams.get('page') || '1');
+    const pageSize = parseInt(searchParams.get('pageSize') || '5');
+
+    const posts = await PostManager.getAllPosts(page, pageSize);
+    return NextResponse.json(posts);
+}

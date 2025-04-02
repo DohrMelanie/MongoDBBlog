@@ -36,6 +36,16 @@ class PostManager {
         const posts = await db.collection("BlogEntries").find({ author: userId }).toArray();
         return posts as BlogEntry[];
     }
+
+    async getAllPosts(page: number = 1, pageSize: number = 5) {
+        const skip = (page - 1) * pageSize;
+        const posts = await db.collection("BlogEntries")
+            .find({})
+            .skip(skip)
+            .limit(pageSize)
+            .toArray();
+        return posts as BlogEntry[];
+    }
 }
 
 export default new PostManager();
