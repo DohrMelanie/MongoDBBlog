@@ -25,7 +25,7 @@ export default function ProfilePosts() {
     return (
         <>
             <h1 className="text-2xl font-bold text-secondary-700 tracking-wider">Your Last Posts</h1>
-            <PostList posts={posts} isLoading={isLoading} className="w-2/3" />
+            <PostList posts={[...posts].sort((a, b) => b.impressionCount - a.impressionCount)} isLoading={isLoading} className="w-2/3" />
         </>
     )
 }
