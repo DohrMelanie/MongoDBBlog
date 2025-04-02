@@ -103,3 +103,13 @@ db.Comments.insertMany([
     createdAt: new Date()
   }
 ]);
+
+db.getCollection("BlogUsers").createIndex(
+  { username: 1 },
+  { unique: true }
+);
+
+db.getCollection("BlogEntries").createIndex(
+  { username: 1 },
+  { unique: true}
+);
