@@ -1,6 +1,0 @@
-{
-  "version": 3,
-  "sources": [],
-  "sections": [
-    {"offset": {"line": 7, "column": 0}, "map": {"version":3,"sources":["file:///home/laflame/Documents/School-Git/mongo/task3/src/components/auth/SignUpForm.tsx"],"sourcesContent":["\"use client\";\n\nimport { useRouter } from \"next/navigation\";\nimport Form from \"../ui/flowbite/form\";\nimport Input from \"../ui/flowbite/input\";\nimport Button from \"../ui/flowbite/button\";\n\nexport default function SignUpForm() {\n    const router = useRouter();\n\n    return (\n        <Form>\n            <Input label=\"Username\" name=\"username\" />\n            <Input label=\"Email\" name=\"email\" />\n            <Input label=\"Password\" name=\"password\" />\n            <Button type=\"submit\">Sign Up</Button>\n        </Form>\n    );\n}"],"names":[],"mappings":";;;;AAEA;;;;;;;;;;;;;;;;;;AAFA;;;;;AAOe,SAAS;;IACpB,MAAM,SAAS,CAAA,GAAA,qIAAA,CAAA,YAAS,AAAD;IAEvB,qBACI,6LAAC;;0BACG,6LAAC;gBAAM,OAAM;gBAAW,MAAK;;;;;;0BAC7B,6LAAC;gBAAM,OAAM;gBAAQ,MAAK;;;;;;0BAC1B,6LAAC;gBAAM,OAAM;gBAAW,MAAK;;;;;;0BAC7B,6LAAC;gBAAO,MAAK;0BAAS;;;;;;;;;;;;AAGlC;GAXwB;;QACL,qIAAA,CAAA,YAAS;;;KADJ","debugId":null}}]
-}

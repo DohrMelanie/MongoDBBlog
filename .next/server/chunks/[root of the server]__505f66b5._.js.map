@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": [],
-  "sections": [
-    {"offset": {"line": 6, "column": 0}, "map": {"version":3,"sources":[],"names":[],"mappings":"","debugId":null}},
-    {"offset": {"line": 60, "column": 0}, "map": {"version":3,"sources":["file:///home/laflame/Documents/School-Git/mongo/task3/src/app/api/auth/logout/route.ts"],"sourcesContent":["import { cookies } from \"next/headers\";\nimport { NextRequest, NextResponse } from \"next/server\";\n\nexport async function POST(request: NextRequest) {\n    const cookieStore = await cookies();\n\n    cookieStore.delete(\"token\");\n\n    return NextResponse.json({ message: \"Logged out\" });\n}"],"names":[],"mappings":";;;AAAA;AACA;;;AAEO,eAAe,KAAK,OAAoB;IAC3C,MAAM,cAAc,MAAM,CAAA,GAAA,iIAAA,CAAA,UAAO,AAAD;IAEhC,YAAY,MAAM,CAAC;IAEnB,OAAO,gIAAA,CAAA,eAAY,CAAC,IAAI,CAAC;QAAE,SAAS;IAAa;AACrD","debugId":null}}]
-}

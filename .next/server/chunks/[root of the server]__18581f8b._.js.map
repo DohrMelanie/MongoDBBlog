@@ -1,8 +1,0 @@
-{
-  "version": 3,
-  "sources": [],
-  "sections": [
-    {"offset": {"line": 6, "column": 0}, "map": {"version":3,"sources":[],"names":[],"mappings":"","debugId":null}},
-    {"offset": {"line": 68, "column": 0}, "map": {"version":3,"sources":["file:///home/laflame/Documents/School-Git/mongo/task3/src/utils/mongo.ts"],"sourcesContent":["import { MongoClient } from \"mongodb\";\n\nconst uri = process.env.MONGODB_URI || \"mongodb://localhost:27017\";\nconst client = new MongoClient(uri);\nconst db = client.db(\"blog\");\n\nexport default db;"],"names":[],"mappings":";;;AAAA;;AAEA,MAAM,MAAM,QAAQ,GAAG,CAAC,WAAW,IAAI;AACvC,MAAM,SAAS,IAAI,uGAAA,CAAA,cAAW,CAAC;AAC/B,MAAM,KAAK,OAAO,EAAE,CAAC;uCAEN","debugId":null}},
-    {"offset": {"line": 83, "column": 0}, "map": {"version":3,"sources":["file:///home/laflame/Documents/School-Git/mongo/task3/src/app/api/v1/me/route.ts"],"sourcesContent":["import { NextRequest, NextResponse } from \"next/server\";\nimport { cookies } from \"next/headers\";\nimport db from \"@/utils/mongo\";\n\nexport async function GET(request: NextRequest) {\n    const cookieStore = await cookies();\n    const token = cookieStore.get(\"token\");\n\n    const user = await db.collection(\"BlogUsers\").findOne({ token: token!.value });\n\n    return NextResponse.json(user);\n}"],"names":[],"mappings":";;;AAAA;AACA;AACA;;;;AAEO,eAAe,IAAI,OAAoB;IAC1C,MAAM,cAAc,MAAM,CAAA,GAAA,iIAAA,CAAA,UAAO,AAAD;IAChC,MAAM,QAAQ,YAAY,GAAG,CAAC;IAE9B,MAAM,OAAO,MAAM,uHAAA,CAAA,UAAE,CAAC,UAAU,CAAC,aAAa,OAAO,CAAC;QAAE,OAAO,MAAO,KAAK;IAAC;IAE5E,OAAO,gIAAA,CAAA,eAAY,CAAC,IAAI,CAAC;AAC7B","debugId":null}}]
-}

@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": [],
-  "sections": [
-    {"offset": {"line": 7, "column": 0}, "map": {"version":3,"sources":[],"names":[],"mappings":"","debugId":null}},
-    {"offset": {"line": 18, "column": 0}, "map": {"version":3,"sources":["file:///home/laflame/Documents/School-Git/mongo/task3/src/app/profile/%5Bid%5D/page.tsx"],"sourcesContent":["\"use client\";\nimport {  } from \"@/models/dtos\";\nimport { useState } from \"react\";\n\nimport { useParams } from \"next/navigation\";\nimport { useEffect } from \"react\";\n\nexport default function ProfilePage() {\n    const params = useParams();\n    const id = params.id as string;\n\n    const [user, setUser] = useState< | null>(null);\n\n    useEffect(() => {\n        fetch(`/api/users/${id}`)\n            .then(res => res.json())\n            .then(data => {\n                setUser(data);\n            })\n    }, [id]);\n\n    return (\n        <>\n            <h1 className=\"text-2xl font-bold text-secondary-700 tracking-wider\">Profile</h1>\n        </>\n    )\n}"],"names":[],"mappings":";;;;AACA;AACA;AAEA;;;AAJA;;;;;AAOe,SAAS;;IACpB,MAAM,SAAS,CAAA,GAAA,qIAAA,CAAA,YAAS,AAAD;IACvB,MAAM,KAAK,OAAO,EAAE;IAEpB,MAAM,CAAC,MAAM,QAAQ,GAAG,CAAA,GAAA,6JAAA,CAAA,WAAQ,AAAD,EAAW;IAE1C,CAAA,GAAA,6JAAA,CAAA,YAAS,AAAD;iCAAE;YACN,MAAM,CAAC,WAAW,EAAE,IAAI,EACnB,IAAI;yCAAC,CAAA,MAAO,IAAI,IAAI;wCACpB,IAAI;yCAAC,CAAA;oBACF,QAAQ;gBACZ;;QACR;gCAAG;QAAC;KAAG;IAEP,qBACI;kBACI,cAAA,6LAAC;YAAG,WAAU;sBAAuD;;;;;;;AAGjF;GAnBwB;;QACL,qIAAA,CAAA,YAAS;;;KADJ","debugId":null}}]
-}
