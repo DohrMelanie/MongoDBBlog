@@ -12,6 +12,16 @@ class UserManager {
 
         return user as UserDetails;
     }
+
+    public async getUserByUsername(username: string) {
+        const user = await db.collection("users").findOne({ username });
+
+        if (!user) {
+            throw new Error("User not found");
+        }
+
+        return user as UserDetails;
+    }
 }
 
 const userManager = new UserManager();

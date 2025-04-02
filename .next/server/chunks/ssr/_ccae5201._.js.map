@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 6, "column": 0}, "map": {"version":3,"sources":[],"names":[],"mappings":"","debugId":null}},
+    {"offset": {"line": 18, "column": 0}, "map": {"version":3,"sources":["file:///home/laflame/Documents/School-Git/mongo/task3/src/app/profile/%5Bid%5D/page.tsx"],"sourcesContent":["import { useParams } from \"next/navigation\";\n\nexport default function ProfilePage() {\n    const params = useParams();\n    const id = params.id as string;\n    console.log(id);\n\n    return (\n        <>\n            <h1 className=\"text-2xl font-bold text-secondary-700 tracking-wider\">Profile</h1>\n        </>\n    )\n}"],"names":[],"mappings":";;;;AAAA;AAAA;;;AAEe,SAAS;IACpB,MAAM,SAAS,CAAA,GAAA,qLAAA,CAAA,YAAS,AAAD;IACvB,MAAM,KAAK,OAAO,EAAE;IACpB,QAAQ,GAAG,CAAC;IAEZ,qBACI;kBACI,cAAA,8OAAC;YAAG,WAAU;sBAAuD;;;;;;;AAGjF","debugId":null}}]
+}

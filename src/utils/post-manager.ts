@@ -31,6 +31,11 @@ class PostManager {
     async deletePost(id: ObjectId) {
         await db.collection("BlogEntries").deleteOne({ _id: id });
     }
+
+    async getPostsByUserId(userId: ObjectId) {
+        const posts = await db.collection("BlogEntries").find({ author: userId }).toArray();
+        return posts as BlogEntry[];
+    }
 }
 
 export default new PostManager();
