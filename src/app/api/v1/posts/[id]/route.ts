@@ -5,11 +5,11 @@ import { NextResponse } from "next/server";
 import { cookies } from "next/headers";
 import { NextRequest } from "next/server";
 
-export async function DELETE(request: NextRequest, { params }: { params: { id: string } }) {
+export async function DELETE(request: NextRequest, context: { params: Promise<{ id: string }> }) {
     const cookieStore = await cookies();
     const token = cookieStore.get("token");
 
-    const { id } = await params;
+    const { id } = await context.params;
 
     const user = await query.getUserFromToken(token!.value!);
 

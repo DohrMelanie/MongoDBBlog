@@ -5,11 +5,11 @@ import { BlogPostDto } from "@/models/dtos";
 import userManager from "@/utils/user-manager";
 import commentManager from "@/utils/comment-manager";
 
-export async function GET(request: NextRequest, { params }: { params: { id: string } }) {
-    const { id } = await params;
+export async function GET(request: NextRequest, context: { params: Promise<{ id: string }> }) {
+    const { id } = await context.params;
     
     try {
-        const post = await postManager.getPost(new ObjectId(id));
+        const post = await postManager.getPost(new ObjectId(id as string));
 
         const author = await userManager.getUserById(post.author);
 
@@ -38,11 +38,11 @@ export async function GET(request: NextRequest, { params }: { params: { id: stri
     }
 }
 
-export async function DELETE(request: NextRequest, { params }: { params: { id: string } }) {
-    const { id } = await params;
+export async function DELETE(request: NextRequest, context: { params: Promise<{ id: string }> }) {
+    const { id } = await context.params;
 
     try {
-        await postManager.deletePost(new ObjectId(id));
+        await postManager.deletePost(new ObjectId(id as string));
         return NextResponse.json({ message: "Post deleted" }, { status: 200 });
     } catch (error) {
         return NextResponse.json({ error: "Post not found" }, { status: 404 });

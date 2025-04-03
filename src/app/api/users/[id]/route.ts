@@ -5,8 +5,8 @@ import { PublicUserDetailsDto, PublicUserPostDetailsDto } from "@/models/dtos";
 import postManager from "@/utils/post-manager";
 import commentManager from "@/utils/comment-manager";
 
-export async function GET(request: NextRequest, { params }: { params: { id: string } }) {
-    const { id } = await params;
+export async function GET(request: NextRequest, context: { params: Promise<{ id: string }> }) {
+    const { id } = await context.params;
 
     const user = await userManager.getUserByUsername(id);
 

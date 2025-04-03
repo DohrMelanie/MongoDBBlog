@@ -7,11 +7,11 @@ import tokenManager from "@/utils/token-manager";
 import { cookies } from "next/headers";
 import query from "@/utils/query";
 
-export async function POST(request: NextRequest, { params }: { params: { id: string } }) {
+export async function POST(request: NextRequest, context: { params: Promise<{ id: string }> }) {
     const cookieStore = await cookies();
     const token = cookieStore.get("token");
 
-    const { id } = await params;
+    const { id } = await context.params;
     const { comment } = await request.json();
 
     const user = await query.getUserFromToken(token!.value!);

@@ -6,11 +6,11 @@ import { cookies } from "next/headers";
 import query from "@/utils/query";
 import userManager from "@/utils/user-manager";
 
-export async function DELETE(request: NextRequest, { params }: { params: { id: string, id2: string } }) {
+export async function DELETE(request: NextRequest, context: { params: Promise<{ id: string, id2: string }> }) {
     const cookieStore = await cookies();
     const token = cookieStore.get("token");
 
-    const { id, id2 } = await params;
+    const { id, id2 } = await context.params;
 
     const user = await query.getUserFromToken(token!.value!);
 

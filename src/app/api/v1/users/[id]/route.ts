@@ -2,8 +2,8 @@ import { NextRequest, NextResponse } from "next/server";
 import userManager from "@/utils/user-manager";
 import { ObjectId } from "mongodb";
 
-export async function GET(request: NextRequest, { params }: { params: { id: string } }) {
-    const { id } = await params;
+export async function GET(request: NextRequest, context: { params: Promise<{ id: string }> }) {
+    const { id } = await context.params;
 
     try {
         const user = await userManager.getUserById(new ObjectId(id));
