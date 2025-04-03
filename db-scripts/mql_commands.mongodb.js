@@ -6,17 +6,17 @@ db.createCollection("BlogCategories")
 db.createCollection("Comments")
 
 db.BlogUsers.insertMany([
-  { username: "kanyeee", name: { firstname: "Kanye", lastname: "West" }, email: "kanye@example.com", password: "pass123" },
-  { username: "badassfukingkid", name: { firstname: "Gunner", lastname: "Shandon" }, email: "gun@example.com", password: "pass123" },
-  { username: "markie", name: { firstname: "Mark", lastname: "Zuckerberg" }, email: "mark@example.com", password: "pass123" },
-  { username: "bobbyaltoff", name: { firstname: "Bobby", lastname: "Althoff" }, email: "bob@example.com", password: "pass123" },
-  { username: "naoka", name: { firstname: "Naoyuki", lastname: "Kanezawa" }, email: "nao@example.com", password: "pass123" }
+  { username: "kanyeee", name: { firstname: "Kanye", lastname: "West" }, email: "kanye@example.com", password: "pass123", _id: ObjectId("67e109cb2ddc3e38cfe742b2") },
+  { username: "badassfukingkid", name: { firstname: "Gunner", lastname: "Shandon" }, email: "gun@example.com", password: "pass123", _id: ObjectId("67e109cb2ddc3e38cfe742b3") },
+  { username: "markie", name: { firstname: "Mark", lastname: "Zuckerberg" }, email: "mark@example.com", password: "pass123", _id: ObjectId("67e109cb2ddc3e38cfe742b4") },
+  { username: "bobbyaltoff", name: { firstname: "Bobby", lastname: "Althoff" }, email: "bob@example.com", password: "pass123", _id: ObjectId("67e109cb2ddc3e38cfe742b4") },
+  { username: "naoka", name: { firstname: "Naoyuki", lastname: "Kanezawa" }, email: "nao@example.com", password: "pass123", _id: ObjectId("67e109cb2ddc3e38cfe742b5") }
 ]);
 
 db.BlogCategories.insertMany([
-  { name: "Antisemitism" },
-  { name: "MAGA" },
-  { name: "Fourth Reich" }
+  { name: "Antisemitism", _id: ObjectId("67e109cc2ddc3e38cfe742b7") },
+  { name: "MAGA", _id: ObjectId("67e109cc2ddc3e38cfe742b8") },
+  { name: "Fourth Reich", _id: ObjectId("67e109cc2ddc3e38cfe742b9") }
 ]);
 
 db.BlogEntries.insertMany([
@@ -113,3 +113,9 @@ db.getCollection("BlogEntries").createIndex(
   { username: 1 },
   { unique: true}
 );
+
+db.getCollection("BlogCategories").createIndex(
+  { name: 1 },
+  { unique: true}
+);
+
