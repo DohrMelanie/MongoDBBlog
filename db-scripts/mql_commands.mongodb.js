@@ -6,11 +6,11 @@ db.createCollection("BlogCategories")
 db.createCollection("Comments")
 
 db.BlogUsers.insertMany([
-  { username: "kanyeee", name: { firstname: "Kanye", lastname: "West" }, email: "kanye@example.com", password: "pass123", _id: ObjectId("67e109cb2ddc3e38cfe742b2") },
-  { username: "badassfukingkid", name: { firstname: "Gunner", lastname: "Shandon" }, email: "gun@example.com", password: "pass123", _id: ObjectId("67e109cb2ddc3e38cfe742b3") },
-  { username: "markie", name: { firstname: "Mark", lastname: "Zuckerberg" }, email: "mark@example.com", password: "pass123", _id: ObjectId("67e109cb2ddc3e38cfe742b4") },
-  { username: "bobbyaltoff", name: { firstname: "Bobby", lastname: "Althoff" }, email: "bob@example.com", password: "pass123", _id: ObjectId("67e109cb2ddc3e38cfe742b4") },
-  { username: "naoka", name: { firstname: "Naoyuki", lastname: "Kanezawa" }, email: "nao@example.com", password: "pass123", _id: ObjectId("67e109cb2ddc3e38cfe742b5") }
+  { id: ObjectId("67e109cb2ddc3e38cfe742b2"), username: "kanyeee", name: { firstname: "Kanye", lastname: "West" }, email: "kanye@example.com", password: "pass123" },
+  { id: ObjectId("67e109cb2ddc3e38cfe742b4"), username: "badassfukingkid", name: { firstname: "Gunner", lastname: "Shandon" }, email: "gun@example.com", password: "pass123" },
+  { id: ObjectId("67e109cb2ddc3e38cfe742b5"), username: "markie", name: { firstname: "Mark", lastname: "Zuckerberg" }, email: "mark@example.com", password: "pass123" },
+  { id: ObjectId("67e109cb2ddc3e38cfe742b6"), username: "bobbyaltoff", name: { firstname: "Bobby", lastname: "Althoff" }, email: "bob@example.com", password: "pass123" },
+  { id: ObjectId("67e109cb2ddc3e38cfe742b1"),  username: "naoka", name: { firstname: "Naoyuki", lastname: "Kanezawa" }, email: "nao@example.com", password: "pass123" }
 ]);
 
 db.BlogCategories.insertMany([
@@ -21,6 +21,7 @@ db.BlogCategories.insertMany([
 
 db.BlogEntries.insertMany([
   {
+    id: ObjectId("entry1"),
     title: "Rising Antisemitism Worldwide",
     author: ObjectId("67e109cb2ddc3e38cfe742b2"),
     description: "An analysis of the increasing antisemitic incidents globally.",
@@ -32,6 +33,7 @@ db.BlogEntries.insertMany([
     category: ObjectId("67e109cc2ddc3e38cfe742b7")
   },
   {
+    id: ObjectId("entry2"),
     title: "The MAGA Movement",
     author: ObjectId("67e109cb2ddc3e38cfe742b4"),
     description: "Understanding the political and social influence of MAGA.",
@@ -43,6 +45,7 @@ db.BlogEntries.insertMany([
     category: ObjectId("67e109cc2ddc3e38cfe742b8")
   },
   {
+    id: ObjectId("entry3"),
     title: "The Fourth Reich: Myth or Reality?",
     author: ObjectId("67e109cb2ddc3e38cfe742b5"),
     description: "Investigating the claims and fears around the Fourth Reich.",
@@ -54,6 +57,7 @@ db.BlogEntries.insertMany([
     category: ObjectId("67e109cc2ddc3e38cfe742b9")
   },
   {
+    id: ObjectId("entry4"),
     title: "MAGA Policies in Practice",
     author: ObjectId("67e109cb2ddc3e38cfe742b5"),
     description: "Examining the real-world impacts of MAGA-aligned policies.",
@@ -65,6 +69,7 @@ db.BlogEntries.insertMany([
     category: ObjectId("67e109cc2ddc3e38cfe742b8")
   },
   {
+    id: ObjectId("entry5"),
     title: "Historical Parallels to the Fourth Reich",
     author: ObjectId("67e109cb2ddc3e38cfe742b6"),
     description: "Drawing parallels between historical events and modern concerns.",
@@ -79,25 +84,25 @@ db.BlogEntries.insertMany([
 
 db.Comments.insertMany([
   {
-    blogEntry: ObjectId("67e10afc2ddc3e38cfe742bf"),
+    blogEntry: ObjectId("entry1"),
     author: ObjectId("67e109cb2ddc3e38cfe742b2"),
     text: "Why tf does no one talk about this?",
     createdAt: new Date()
   },
   {
-    blogEntry: ObjectId("67e10afc2ddc3e38cfe742c0"),
+    blogEntry: ObjectId("entry2"),
     author: ObjectId("67e109cb2ddc3e38cfe742b6"),
     text: "MAGA movement is DAAAA BEEESSSTT",
     createdAt: new Date()
   },
   {
-    blogEntry: ObjectId("67e10afc2ddc3e38cfe742c1"),
+    blogEntry: ObjectId("entry3"),
     author: ObjectId("67e109cb2ddc3e38cfe742b5"),
     text: "I fear a Fourth Reich!!!!!",
     createdAt: new Date()
   },
   {
-    blogEntry: ObjectId("67e10afc2ddc3e38cfe742c1"),
+    blogEntry: ObjectId("entry4"),
     author: ObjectId("67e109cb2ddc3e38cfe742b4"),
     text: "Guys, calm down pls",
     createdAt: new Date()
@@ -111,7 +116,7 @@ db.getCollection("BlogUsers").createIndex(
 
 db.getCollection("BlogEntries").createIndex(
   { username: 1 },
-  { unique: true}
+  { unique: true, sparse: true}
 );
 
 db.getCollection("BlogCategories").createIndex(
