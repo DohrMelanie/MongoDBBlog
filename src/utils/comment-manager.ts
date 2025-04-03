@@ -17,7 +17,6 @@ class CommentManager {
 
     async getCommentsByPostId(postId: ObjectId) {
         const comments = await db.collection("Comments").find({ blogEntry: postId }).toArray();
-
         return comments as Comment[];
     }
 

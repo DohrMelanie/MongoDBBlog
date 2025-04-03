@@ -17,10 +17,8 @@ export default function CommentCreation({ postId }: { postId: string }) {
             if (res.ok) {
                 setIsLoggedIn(true);
             }
-
             setIsLoading(false);
         }
-
         ping();
     }, []);
 

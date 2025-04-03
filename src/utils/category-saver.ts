@@ -1,3 +1,4 @@
+import { ObjectId } from "mongodb";
 import db from "./mongo";
 
 class CategorySaver {
@@ -6,5 +7,5 @@ class CategorySaver {
         return categories;
     }
 }
-
+ObjectId
 export default new CategorySaver();
