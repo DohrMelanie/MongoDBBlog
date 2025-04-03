@@ -10,7 +10,7 @@ export default function Feed() {
 
     useEffect(() => {
         const fetchPosts = async () => {
-            const posts = await fetch("/api/v1/posts");
+            const posts = await fetch("/api/posts");
             const data = await posts.json();
             setPosts(data);
             setIsLoading(false);
