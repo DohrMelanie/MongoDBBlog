@@ -15,11 +15,15 @@ export default function Profile() {
                 const res = await fetch("/api/v1/me");
                 if (res.ok) {
                     const userData = await res.json();
-                    setUsername(userData.username || "User");
-                    setEmail(userData.email || "user@example.com");
+                    if (userData && typeof userData === 'object') {
+                        setUsername(typeof userData.username === 'string' ? userData.username : "User");
+                        setEmail(typeof userData.email === 'string' ? userData.email : "user@example.com");
+                    }
                 }
             } catch (error) {
                 console.error("Error fetching user data:", error);
+                setUsername("User");
+                setEmail("user@example.com");
             }
         };
 
