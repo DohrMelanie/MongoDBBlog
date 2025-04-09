@@ -15,7 +15,7 @@ export default function CommentsList({ comments, postId }: { comments: CommentDt
                 const data = await response.json();
                 setMyId(data._id);
             } catch (error) {
-                setMyId("");
+                setMyId(null);
             }
         };
         
