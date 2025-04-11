@@ -21,6 +21,17 @@ export default function PostPage() {
         });
     }, [id]);
 
+
+    useEffect(() => {
+        fetch(`/api/posts/${id}`, {
+            method: "PATCH"
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+        })
+    }, [isLoading]);
+
     return (
         <>
             {isLoading ? <BigBoxSkeleton className="w-2/3 h-full" /> : post && <PostBig post={post} />}

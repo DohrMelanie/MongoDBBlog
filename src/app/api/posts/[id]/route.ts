@@ -4,6 +4,8 @@ import { ObjectId } from "mongodb";
 import { BlogPostDto } from "@/models/dtos";
 import userManager from "@/utils/user-manager";
 import commentManager from "@/utils/comment-manager";
+import { cookies } from "next/headers";
+import query from "@/utils/query";
 
 export async function GET(request: NextRequest, context: { params: Promise<{ id: string }> }) {
     const { id } = await context.params;
@@ -47,4 +49,25 @@ export async function DELETE(request: NextRequest, context: { params: Promise<{ 
     } catch (error) {
         return NextResponse.json({ error: "Post not found" }, { status: 404 });
     }
+}
+
+export async function PATCH(request: NextRequest, context: { params: Promise<{ id: string }> }) {
+    const { id } = await context.params;
+    
+    const cookieStore = await cookies();
+    const token = cookieStore.get("token");
+
+    const user = await query.getUserFromToken(token!.value);
+
+    if (!user) {
+        return NextResponse.json({ error: "User not found" }, { status: 404 });
+    }
+
+    if(user.viewedPosts.some(post => post.toString() === id as string)) {
+        return NextResponse.json({ error: "User has already viewed this post" }, { status: 400 });
+    }
+
+    await postManager.addViewToPost(new ObjectId(id as string), user._id!);
+
+    return NextResponse.json({ message: "View added" }, { status: 200 });
 }

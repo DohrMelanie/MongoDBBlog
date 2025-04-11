@@ -1,7 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import userManager from "@/utils/user-manager";
-import { ObjectId } from "mongodb";
-import { PublicUserDetailsDto, PublicUserPostDetailsDto } from "@/models/dtos";
+import { PublicUserPostDetailsDto } from "@/models/dtos";
 import postManager from "@/utils/post-manager";
 import commentManager from "@/utils/comment-manager";
 

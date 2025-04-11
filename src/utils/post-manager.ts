@@ -46,6 +46,18 @@ class PostManager {
             .toArray();
         return posts as BlogEntry[];
     }
+
+    async addViewToPost(postId: ObjectId, userId: ObjectId) {
+        await db.collection("BlogUsers").updateOne(
+            { _id: userId },
+            { $addToSet: { viewedPosts: postId } }
+        );
+
+        await db.collection("BlogEntries").updateOne(
+            { _id: postId },
+            { $inc: { impressionCount: 1 } }
+        );
+    }
 }
 
 export default new PostManager();

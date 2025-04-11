@@ -8,6 +8,7 @@ export type BlogUser = {
     };
     email: string;
     password: string;
+    viewedPosts: ObjectId[];
 }
 
 export type MandatoryUserData = {
@@ -34,4 +35,5 @@ export type UserDetails = {
     };
     email: string;
     isVerified: boolean;
+    viewedPosts: ObjectId[];
 }

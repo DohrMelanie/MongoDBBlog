@@ -6,7 +6,7 @@ class AuthManager {
     async addUser(user: UserCreationData) {
         const hash = createHash("sha256").update(user.password).digest("hex");
 
-        await db.collection("BlogUsers").insertOne({ username: user.username, password: hash, email: user.email, name: user.name, isVerified: false });
+        await db.collection("BlogUsers").insertOne({ username: user.username, password: hash, email: user.email, name: user.name, isVerified: false, viewedPosts: [] });
     }
 
     async verifyUserAccount(username: string) {
