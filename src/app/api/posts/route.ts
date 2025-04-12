@@ -11,17 +11,17 @@ export async function GET(request: NextRequest) {
   const pageSize = parseInt(searchParams.get("pageSize") || "5");
 
   const posts: BlogEntry[] = await postManager.getAllPosts(page, pageSize);
-  const validPosts = posts.filter(
-    (post): post is BlogEntry & { _id: NonNullable<BlogEntry["_id"]> } =>
-      post._id !== undefined
-  );
+  const validPosts: BlogEntry[] = posts.filter((post) => post._id !== undefined);
+  return NextResponse.json(await GetDtoFromPosts(validPosts));
+}
 
-  const postsDtos: BlogPostDto[] = (
+export async function GetDtoFromPosts(posts: BlogEntry[]) {
+  return (
     await Promise.all(
-      validPosts.map(async (post) => {
+      posts.map(async (post) => {
         const author = await userManager.getUserById(post.author);
         if (!author?._id) return null;
-        const comments = await commentManager.getCommentsByPostId(post._id);
+        const comments = await commentManager.getCommentsByPostId(post._id!);
         const validComments = await Promise.all(
           comments.map(async (comment) => {
             const commentAuthor = await userManager.getUserById(comment.author);
@@ -61,6 +61,4 @@ export async function GET(request: NextRequest) {
       })
     )
   ).filter((post): post is BlogPostDto => post !== null);
-
-  return NextResponse.json(postsDtos);
 }

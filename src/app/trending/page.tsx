@@ -15,7 +15,6 @@ export default function TrendingProfiles() {
         const profiles = await fetch("/api/v1/users");
         const data = await profiles.json();
         setProfiles(data);
-
         setIsLoading(false);
     }
 
