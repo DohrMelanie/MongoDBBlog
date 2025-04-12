@@ -4,6 +4,7 @@ import { BlogPostDto, CommentDto } from "@/models/dtos";
 import userManager from "@/utils/user-manager";
 import { BlogEntry } from "@/models/blog";
 import commentManager from "@/utils/comment-manager";
+import categoryManager from "@/utils/category-manager";
 
 export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url);
@@ -11,6 +12,7 @@ export async function GET(request: NextRequest) {
   const pageSize = parseInt(searchParams.get("pageSize") || "5");
 
   const posts: BlogEntry[] = await postManager.getAllPosts(page, pageSize);
+
   const validPosts: BlogEntry[] = posts.filter((post) => post._id !== undefined);
   return NextResponse.json(await GetDtoFromPosts(validPosts));
 }
@@ -42,6 +44,8 @@ export async function GetDtoFromPosts(posts: BlogEntry[]) {
           (comment): comment is CommentDto => comment !== null
         );
 
+        const category = await categoryManager.getCategoryById(post.category);
+
         return {
           _id: post._id,
           title: post.title,
@@ -57,6 +61,7 @@ export async function GetDtoFromPosts(posts: BlogEntry[]) {
             username: author.username,
             name: author.name,
           },
+          category: category?.name,
         } as BlogPostDto;
       })
     )

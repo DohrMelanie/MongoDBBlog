@@ -51,6 +51,10 @@ class CommentManager {
 
         return postsCommentsDto.flat();
     }
+
+    async updateComment(commentId: ObjectId, comment: string) {
+        await db.collection("Comments").updateOne({ _id: commentId }, { $set: { text: comment } });
+    }
 }
 
 export default new CommentManager();

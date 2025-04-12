@@ -27,6 +27,22 @@ class BlogManager {
         });
         return response.json() as Promise<CommentDto>;
     }
+
+    async updatePost(postId: string, title: string, content: string, category: string, description: string, commentsAllowed: boolean) {
+        const response = await fetch(`/api/v1/posts/${postId}`, {
+            method: "PATCH",
+            body: JSON.stringify({ title, content, category, description, commentsAllowed })
+        });
+        return response.json() as Promise<BlogEntry>;
+    }
+
+    async updateComment(commentId: string, comment: string, postId: string) {
+        const response = await fetch(`/api/v1/posts/${postId}/comments/${commentId}`, {
+            method: "PATCH",
+            body: JSON.stringify({ comment })
+        });
+        return response.json() as Promise<CommentDto>;
+    }
 }
 
 export default new BlogManager();

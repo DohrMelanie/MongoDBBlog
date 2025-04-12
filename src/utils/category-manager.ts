@@ -11,6 +11,12 @@ class CategoryManager {
     
         return category;
     }
+
+    async getCategory(id: ObjectId) {
+        const category = await db.collection("BlogCategories").findOne({ _id: id });
+
+        return category;
+    }
 }
 
 export default new CategoryManager();

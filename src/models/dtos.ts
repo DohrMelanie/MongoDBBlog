@@ -10,6 +10,7 @@ export interface BlogPostDto {
     impressionCount: number;
     content: string;
     commentsAllowed: boolean;
+    category: string;
     comments: CommentDto[];
 }
 

@@ -6,15 +6,17 @@ export default function Dropdown({
     label, 
     name, 
     options, 
-    onUpdate 
+    onUpdate,
+    value
 }: { 
     label: string, 
     name: string, 
     options: string[], 
-    onUpdate?: (value: string) => void 
+    onUpdate?: (value: string) => void,
+    value: string
 }) {
     const [isOpen, setIsOpen] = useState(false);
-    const [selectedOption, setSelectedOption] = useState<string | null>(null);
+    const [selectedOption, setSelectedOption] = useState<string | null>(value);
     const dropdownRef = useRef<HTMLDivElement>(null);
 
     const toggleDropdown = () => {

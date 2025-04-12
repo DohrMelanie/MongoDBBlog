@@ -33,7 +33,7 @@ export async function GET(request: NextRequest, context: { params: Promise<{ id:
             impressionCount: post.impressionCount,
             content: post.content,
             commentsAllowed: post.commentsAllowed,
-            category: post.category,
+            category: post.category.toString(),
             comments: await commentManager.generatePostsCommentsDto([post])
         })))
     }

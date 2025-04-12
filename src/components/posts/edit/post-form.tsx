@@ -10,30 +10,31 @@ import { useState, useEffect } from "react";
 import categoryManager from "@/utils/client/category-manager";
 import blogManager from "@/utils/client/blog-manager";
 import { useRouter } from "next/navigation";
+import { BlogPostDto } from "@/models/dtos";
 
-export default function PostForm() {
-    const [category, setCategory] = useState<string | null>(null);
-    const [commentsAllowed, setCommentsAllowed] = useState<boolean>(false);
+export default function PostForm({ post }: { post: BlogPostDto }) {
+    const [category, setCategory] = useState<string | null>(post.category);
+    const [commentsAllowed, setCommentsAllowed] = useState<boolean>(post.commentsAllowed);
     const [categories, setCategories] = useState<string[]>([]);
-    const [title, setTitle] = useState<string>("");
-    const [content, setContent] = useState<string>("");
+    const [title, setTitle] = useState<string>(post.title);
+    const [content, setContent] = useState<string>(post.content);
     const router = useRouter();
+
+    console.log(post);
     
     useEffect(() => {
         categoryManager.getCategories().then((categories) => {
             setCategories(categories);
+            setCategory(post.category);
+
+            console.log(categories);
+            console.log(post.category);
         });
     }, []);
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        blogManager.createPost({
-            title,
-            description: content.substring(0, 255),
-            category: category!,
-            commentsAllowed,
-            content
-        }).then((post) => {
+        blogManager.updatePost(post._id.toString(), title, content, category!, content.substring(0, 255), commentsAllowed).then((post) => {
             router.push(`/profile/posts`); 
         });
     }
@@ -42,11 +43,11 @@ export default function PostForm() {
         <Form className="flex flex-col items-center justify-center gap-4 min-w-1/2" onSubmit={handleSubmit}>
             <Input label="Title" type="text" name="title" value={title} onChange={(e) => setTitle(e.target.value)} />
             <div className="flex flex-row justify-evenly items-center gap-4 w-full max-sm:flex-col">
-                <Dropdown label="Category" name="category" options={categories} onUpdate={setCategory} value="" />
-                <Slider label="Allow Comments" name="allowComments" min={0} max={1000} step={1} defaultValue={500} onChange={(val) => val > 500 ? setCommentsAllowed(true) : setCommentsAllowed(false)} truthColor={commentsAllowed} />
+                <Dropdown label="Category" name="category" options={categories} onUpdate={(value) => setCategory(value)} value={post.category} />
+                <Slider label="Allow Comments" name="allowComments" min={0} max={1000} step={1} defaultValue={post.commentsAllowed ? 1000 : 1} onChange={(val) => setCommentsAllowed(val > 500)} truthColor={commentsAllowed} />
             </div>
             <Textarea name="content" placeholder="Content" value={content} onChange={(e) => setContent(e.target.value)} />
-            <Button type="submit">Create</Button>
+            <Button type="submit">Update</Button>
         </Form>
     )
 }

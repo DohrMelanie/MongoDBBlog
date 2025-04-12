@@ -7,7 +7,9 @@ interface ChatBubbleProps {
     status?: string;
     maxWidth?: string;
     deleteAllowed?: boolean;
+    editAllowed?: boolean;
     onDelete?: () => void;
+    onEdit?: () => void;
 }
 
 export default function ChatBubble({
@@ -18,7 +20,9 @@ export default function ChatBubble({
     message,
     maxWidth = "320px",
     deleteAllowed = false,
-    onDelete
+    editAllowed = false,
+    onDelete,
+    onEdit
 }: ChatBubbleProps) {
     return (
         <div className="flex items-start gap-2.5">
@@ -29,6 +33,7 @@ export default function ChatBubble({
                     <span className="text-sm font-normal text-gray-500 dark:text-gray-400">{timestamp}</span>
                 </div>
                 <p className="text-sm font-normal py-2.5 text-gray-900 dark:text-white">{message}</p>
+                {deleteAllowed && <button className="text-sm hover:text-red-500 font-normal text-gray-500 dark:text-gray-400" onClick={onEdit}>Edit</button>}
                 {deleteAllowed && <button className="text-sm hover:text-red-500 font-normal text-gray-500 dark:text-gray-400" onClick={onDelete}>Delete</button>}
             </div>
         </div>

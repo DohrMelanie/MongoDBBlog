@@ -6,6 +6,7 @@ import userManager from "@/utils/user-manager";
 import commentManager from "@/utils/comment-manager";
 import { cookies } from "next/headers";
 import query from "@/utils/query";
+import categoryManager from "@/utils/category-manager";
 
 export async function GET(request: NextRequest, context: { params: Promise<{ id: string }> }) {
     const { id } = await context.params;
@@ -16,6 +17,10 @@ export async function GET(request: NextRequest, context: { params: Promise<{ id:
         const author = await userManager.getUserById(post.author);
 
         const commentsDto = await commentManager.generatePostsCommentsDto([post]);
+
+        const category = await categoryManager.getCategory(post.category);
+
+        console.log(category);
 
         const postDto: BlogPostDto = {
             _id: post._id!,
@@ -31,6 +36,7 @@ export async function GET(request: NextRequest, context: { params: Promise<{ id:
             impressionCount: post.impressionCount,
             content: post.content,
             commentsAllowed: post.commentsAllowed,
+            category: category?.name,
             comments: commentsDto
         }
 
