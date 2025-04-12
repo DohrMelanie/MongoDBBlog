@@ -144,8 +144,6 @@ db.Comments.aggregate([
   { $sort: { createdAt: -1 } },
   { $limit: 2 }
 ])
-// Query of getting all users becausse in the application we already have a trending profile page
-db.BlogUsers.find().sort({ username: 1 }).toArray();
 
 // Changes
 

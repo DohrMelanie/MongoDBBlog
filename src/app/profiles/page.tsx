@@ -5,7 +5,7 @@ import { PublicUserPostDetailsDto } from "@/models/dtos";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
-export default function TrendingProfiles() {
+export default function AllProfiles() {
   const [profiles, setProfiles] = useState<PublicUserPostDetailsDto[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const router = useRouter();
@@ -23,7 +23,7 @@ export default function TrendingProfiles() {
 
   return (
     <>
-      <h1 className="text-2xl font-bold text-secondary-700 tracking-wider">Trending Profiles</h1>
+      <h1 className="text-2xl font-bold text-secondary-700 tracking-wider">All Profiles</h1>
       {isLoading ? (
         <ListSkeleton />
       ) : (

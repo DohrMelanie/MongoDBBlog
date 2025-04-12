@@ -39,7 +39,7 @@ export default function NavBar() {
           <Link href="/">Feed</Link>
         </Element>
         <Element>
-          <Link href="/trending">Trending</Link>
+          <Link href="/profiles">Profiles</Link>
         </Element>
         <Element>
           <Link href="/search">Search</Link>
