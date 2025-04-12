@@ -29,9 +29,7 @@ db.BlogEntries.insertMany([
     editDates: [],
     impressionCount: 0,
     content: {
-      text: "<base64_encoded_image> Detailed analysis on antisemitism...",
-      image: "",
-      link: ""
+      text: "Detailed analysis on antisemitism...",
     },
     commentsAllowed: true,
     category: ObjectId("67e109cb2ddc3e38cfe74bb1")
@@ -46,8 +44,6 @@ db.BlogEntries.insertMany([
     impressionCount: 5,
     content: {
       text: "A deep dive into the MAGA movement...",
-      image: "",
-      link: ""
     },
     commentsAllowed: true,
     category: ObjectId("67e109cb2ddc3e38cfe74bb2")
@@ -62,7 +58,7 @@ db.BlogEntries.insertMany([
     impressionCount: 12,
     content: {
       text: "Exploring the Fourth Reich concept...",
-      image: "",
+      images: [],
       link: ""
     },
     commentsAllowed: true,
@@ -78,8 +74,6 @@ db.BlogEntries.insertMany([
     impressionCount: 0,
     content: {
       text: "Policy impacts of MAGA...",
-      image: "",
-      link: ""
     },
     commentsAllowed: false,
     category: ObjectId("67e109cb2ddc3e38cfe74bb1")
@@ -94,8 +88,6 @@ db.BlogEntries.insertMany([
     impressionCount: 8,
     content: {
       text: "Historical analysis of the Fourth Reich narrative...",
-      image: "",
-      link: ""
     },
     commentsAllowed: true,
     category: ObjectId("67e109cb2ddc3e38cfe74bb2")
@@ -141,7 +133,7 @@ db.getCollection("BlogEntries").createIndex(
 
 // Design Pattern: Outlier Pattern
 db.PopularBlogEntries.createIndex(
-  { title: 1, author: 1 }, 
+  { title: 1, author: 1 },
   { unique: true }
 );
 
@@ -165,14 +157,10 @@ db.Comments.aggregate([
   { $limit: 2 }
 ])
 
-// Changes
+// Changes (because those weren't reasonable in our application)
 
-// Add a new author to an existing blog-entry or change the author if a second is not possible
+// Change the author of a blog entry
 db.BlogEntries.updateOne(
-  { _id: ObjectId("67e109cb2ddc3e38cfe74211") },
-  { $set: { author: ObjectId("67e109cb2ddc3e38cfe742b1") } }
-);
-db.PopularBlogEntries.updateOne(
   { _id: ObjectId("67e109cb2ddc3e38cfe74211") },
   { $set: { author: ObjectId("67e109cb2ddc3e38cfe742b1") } }
 );
@@ -181,21 +169,25 @@ db.PopularBlogEntries.updateOne(
 const newestPost = db.BlogEntries.find().sort({ creationDate: -1 }).limit(1).toArray()[0];
 if (newestPost) {
   db.BlogEntries.updateOne(
-    { _id: newestPost._id },
-    { $set: { hashtag: "#CurrentNews" } }
+    {
+      _id: newestPost._id,
+      "content.hashtag": { $exists: false }
+    },
+    {
+      $set: { "content.hashtag": "#CurrentNews" }
+    }
   );
 } else {
   const newestPopular = db.PopularBlogEntries.find().sort({ creationDate: -1 }).limit(1).toArray()[0];
   if (newestPopular) {
     db.PopularBlogEntries.updateOne(
-      { _id: newestPopular._id },
-      { $set: { hashtag: "#CurrentNews" } }
+      {
+        _id: newestPopular._id,
+        "content.hashtag": { $exists: false }
+      },
+      {
+        $set: { "content.hashtag": "#CurrentNews" }
+      }
     );
   }
 }
-
-// Update name of a blog category
-db.BlogCategories.updateOne(
-  { name: "Fourth Reich" },
-  { $set: { name: "Neo-Nationalism" } }
-);

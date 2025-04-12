@@ -14,8 +14,7 @@ export interface BlogEntry {
   editDates: Date[];
   impressionCount: number;
   content: {
-    text: string;
-    images: string[];
+    [key: string]: any;
   };
   commentsAllowed: boolean;
   category: ObjectId;

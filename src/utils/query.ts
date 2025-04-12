@@ -38,24 +38,32 @@ class Query {
 
     async getTitleInContentPosts(): Promise<BlogEntry[] | null> {
         const entries = await this.getAllBlogEntries();
-        return entries.filter(e =>
-            e.content?.toLowerCase().includes(e.title?.toLowerCase())
-        );
+        return entries.filter(e => {
+            if (!e.title || !e.content) return false;
+            const titleLower = e.title.toLowerCase();
+            return Object.values(e.content).some(val =>
+                typeof val === 'string' && val.toLowerCase().includes(titleLower)
+            );
+        });
     }
 
-    async getMissingContentFieldPosts(): Promise<BlogEntry[] | null>  {
+    async getMissingContentFieldPosts(): Promise<BlogEntry[] | null> {
         const entries = await this.getAllBlogEntries();
-        return entries.filter(e => !e.content);
+        return entries.filter(e => {
+            if (!e.content) return false;
+            const contentKeys = Object.keys(e.content);
+            return contentKeys.length === 1 && contentKeys[0] === "text";
+        });
     }
-
+    
     async getContainsImagesPosts(): Promise<BlogEntry[] | null>  {
         const entries = await this.getAllBlogEntries();
-        return entries.filter(e => /<img\b[^>]*>/i.test(e.content || ""));
+        return entries.filter(e => e.content.images && e.content.images.length > 0);
     }
 
     async getMultipleImagesPosts(): Promise<BlogEntry[] | null>  {
         const entries = await this.getAllBlogEntries();
-        return entries.filter(e => (e.content?.match(/<img\b[^>]*>/gi) || []).length > 1);
+        return entries.filter(e => e.content.images && e.content.images.length > 1);
     }
 
     async getAuthorNameFilteredPosts(): Promise<BlogEntry[] | null>  {
@@ -71,14 +79,15 @@ class Query {
     }
 
     async getLastWeekWithLinkPosts(): Promise<BlogEntry[] | null>  {
-        const oneWeekAgo = new Date();
-        oneWeekAgo.setDate(oneWeekAgo.getDate() - 7);
-
         const entries = await this.getAllBlogEntries();
-        return entries.filter(e =>
-            new Date(e.creationDate) >= oneWeekAgo &&
-            /https?:\/\//i.test(e.content || "")
-        );
+        const oneWeekAgo = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000);
+    
+        return entries.filter(e => {
+            const isRecent = new Date(e.creationDate) >= oneWeekAgo;
+            const hasSeparateLinks = Array.isArray(e.content.links) && e.content.links.length > 0;
+            const hasMarkdownLink = typeof e.content.text === "string" && /\[.*?\]\(.*?\)/.test(e.content.text);
+            return isRecent && (hasSeparateLinks || hasMarkdownLink);
+        });
     }
 }
 
