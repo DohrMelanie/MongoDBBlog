@@ -35,6 +35,14 @@ class BlogManager {
         });
         return response.json() as Promise<BlogEntry>;
     }
+
+    async updateComment(commentId: string, comment: string, postId: string) {
+        const response = await fetch(`/api/v1/posts/${postId}/comments/${commentId}`, {
+            method: "PATCH",
+            body: JSON.stringify({ comment })
+        });
+        return response.json() as Promise<CommentDto>;
+    }
 }
 
 export default new BlogManager();
