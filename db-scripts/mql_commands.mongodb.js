@@ -120,7 +120,32 @@ db.getCollection("BlogEntries").createIndex(
 );
 
 // Design Pattern: Outlier Pattern
-db.PopularBlogEntries.createIndex({ title: 1, author: 1 }, { unique: true });
+db.PopularBlogEntries.createIndex(
+  { title: 1, author: 1 }, 
+  { unique: true }
+);
+
+// Query of getting newest 2 Comments under a Users Entries, because it wouldn't fit into the application
+db.Comments.aggregate([
+  {
+    $lookup: {
+      from: "BlogEntries",
+      localField: "blogEntry",
+      foreignField: "_id",
+      as: "blogInfo"
+    }
+  },
+  { $unwind: "$blogInfo" },
+  {
+    $match: {
+      "blogInfo.author": ObjectId("67e109cb2ddc3e38cfe742b4")
+    }
+  },
+  { $sort: { createdAt: -1 } },
+  { $limit: 2 }
+])
+// Query of getting all users becausse in the application we already have a trending profile page
+db.BlogUsers.find().sort({ username: 1 }).toArray();
 
 // Changes
 

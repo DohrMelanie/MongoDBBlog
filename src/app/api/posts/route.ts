@@ -4,6 +4,7 @@ import { BlogPostDto, CommentDto } from "@/models/dtos";
 import userManager from "@/utils/user-manager";
 import { BlogEntry } from "@/models/blog";
 import commentManager from "@/utils/comment-manager";
+import categoryManager from "@/utils/category-manager";
 
 export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url);
@@ -11,17 +12,18 @@ export async function GET(request: NextRequest) {
   const pageSize = parseInt(searchParams.get("pageSize") || "5");
 
   const posts: BlogEntry[] = await postManager.getAllPosts(page, pageSize);
-  const validPosts = posts.filter(
-    (post): post is BlogEntry & { _id: NonNullable<BlogEntry["_id"]> } =>
-      post._id != null
-  );
 
-  const postsDtos: BlogPostDto[] = (
+  const validPosts: BlogEntry[] = posts.filter((post) => post._id !== undefined);
+  return NextResponse.json(await GetDtoFromPosts(validPosts));
+}
+
+export async function GetDtoFromPosts(posts: BlogEntry[]) {
+  return (
     await Promise.all(
-      validPosts.map(async (post) => {
+      posts.map(async (post) => {
         const author = await userManager.getUserById(post.author);
         if (!author?._id) return null;
-        const comments = await commentManager.getCommentsByPostId(post._id);
+        const comments = await commentManager.getCommentsByPostId(post._id!);
         const validComments = await Promise.all(
           comments.map(async (comment) => {
             const commentAuthor = await userManager.getUserById(comment.author);
@@ -42,6 +44,8 @@ export async function GET(request: NextRequest) {
           (comment): comment is CommentDto => comment !== null
         );
 
+        const category = await categoryManager.getCategoryById(post.category);
+
         return {
           _id: post._id,
           title: post.title,
@@ -57,10 +61,9 @@ export async function GET(request: NextRequest) {
             username: author.username,
             name: author.name,
           },
+          category: category?.name,
         } as BlogPostDto;
       })
     )
   ).filter((post): post is BlogPostDto => post !== null);
-
-  return NextResponse.json(postsDtos);
 }
