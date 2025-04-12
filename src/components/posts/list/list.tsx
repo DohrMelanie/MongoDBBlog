@@ -29,7 +29,7 @@ export default function PostList({ posts, isLoading, className, isPaging = false
     }, []);
     
     return (
-        <div className={`flex flex-col gap-4 ${className} border border-primary-200 p-4 max-h-[500px]`}>
+        <div className={`flex flex-col gap-4 ${className} border border-primary-200 p-4`}>
             {isLoading || isLoadingChild ? (
                 <ListSkeleton />
             ) : (
