@@ -19,7 +19,7 @@ export default function FormModal({children, title, svg, className}: {children: 
 
             {isOpen && (
                 <div id="authentication-modal" tabIndex={-1} aria-hidden={!isOpen} className="fixed inset-0 z-50 flex justify-center items-center w-full h-full bg-black bg-opacity-50" onClick={closeModal} style={{ backgroundColor: 'rgba(0, 0, 0, 0.5)' }}>
-                    <div className="relative p-4 w-full max-w-md max-h-full bg-white rounded-lg shadow-sm dark:bg-gray-700" onClick={(e) => e.stopPropagation()}>
+                    <div className="relative p-4 w-full max-w-md max-h-full bg-white rounded-lg shadow-sm dark:bg-gray-700 max-h-[70vh] overflow-y-auto" onClick={(e) => e.stopPropagation()}>
                         <div className="p-4 md:p-5">
                             <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
                                 {title}

@@ -19,7 +19,11 @@ class PostManager {
             author: user._id,
             creationDate: new Date(),
             editDates: [],
-            impressionCount: 0
+            impressionCount: 0,
+            content: {
+                text: post.content.text,
+                images: post.content.images || []
+            }
         });
     
         return blogEntry;
@@ -94,10 +98,19 @@ class PostManager {
             throw new Error("Category not found");
         }
 
+        const currentPost = await db.collection("BlogEntries").findOne({ _id: id });
+        if (!currentPost) {
+            throw new Error("Post not found");
+        }
+
         await db.collection("BlogEntries").updateOne({ _id: id }, { $set: {
             ...post,
             category: category._id,
-            editDates: [new Date()]
+            editDates: [...currentPost.editDates, new Date()],
+            content: {
+                text: post.content.text,
+                images: post.content.images || []
+            }
         } });
     }
 }

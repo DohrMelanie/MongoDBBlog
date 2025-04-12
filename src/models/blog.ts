@@ -13,9 +13,13 @@ export interface BlogEntry {
   creationDate: Date;
   editDates: Date[];
   impressionCount: number;
-  content: string;
+  content: {
+    text: string;
+    images: string[];
+  };
   commentsAllowed: boolean;
   category: ObjectId;
+  viewedBy?: ObjectId[];
 }
 
 export interface Comment {
@@ -29,7 +33,10 @@ export interface Comment {
 export interface BlogEntryCreationData {
   title: string;
   description: string;
-  content: string;
+  content: {
+    text: string;
+    images: string[];
+  };
   commentsAllowed: boolean;
   category: string;
 }

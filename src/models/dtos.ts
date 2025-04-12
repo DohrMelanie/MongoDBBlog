@@ -8,7 +8,10 @@ export interface BlogPostDto {
     creationDate: Date;
     editDates: Date[];
     impressionCount: number;
-    content: string;
+    content: {
+        text: string;
+        images: string[];
+    };
     commentsAllowed: boolean;
     category: string;
     comments: CommentDto[];

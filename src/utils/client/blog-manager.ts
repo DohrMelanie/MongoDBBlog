@@ -15,7 +15,16 @@ class BlogManager {
     async createPost(post: BlogEntryCreationData) {
         const response = await fetch("/api/v1/posts", {
             method: "POST",
-            body: JSON.stringify(post)
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                ...post,
+                content: {
+                    text: post.content.text,
+                    images: post.content.images || []
+                }
+            })
         });
         return response.json() as Promise<BlogEntry>;
     }
@@ -23,16 +32,32 @@ class BlogManager {
     async createComment(postId: string, comment: string) {
         const response = await fetch(`/api/v1/posts/${postId}/comments`, {
             method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
             body: JSON.stringify({ comment })
         });
         return response.json() as Promise<CommentDto>;
     }
 
-    async updatePost(postId: string, title: string, content: string, category: string, description: string, commentsAllowed: boolean) {
-        const response = await fetch(`/api/v1/posts/${postId}`, {
+    async updatePost(id: string, post: BlogEntryCreationData) {
+        const response = await fetch(`/api/v1/posts/${id}`, {
             method: "PATCH",
-            body: JSON.stringify({ title, content, category, description, commentsAllowed })
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                ...post,
+                content: {
+                    text: post.content.text,
+                    images: post.content.images || []
+                },
+                description: post.content.text.substring(0, 255)
+            })
         });
+
+        console.log(response);
+
         return response.json() as Promise<BlogEntry>;
     }
 
