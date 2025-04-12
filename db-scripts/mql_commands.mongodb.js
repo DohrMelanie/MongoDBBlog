@@ -118,3 +118,5 @@ db.getCollection("BlogEntries").createIndex(
   { username: 1 },
   { unique: true, sparse: true}
 );
+
+db.PopularBlogEntries.createIndex({ title: 1, author: 1 }, { unique: true });
