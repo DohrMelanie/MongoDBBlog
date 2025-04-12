@@ -86,6 +86,20 @@ class PostManager {
             }
         }
     }
+
+    async updatePost(id: ObjectId, post: BlogEntryCreationData) {
+        const category = await db.collection("BlogCategories").findOne({ name: post.category });
+
+        if (!category) {
+            throw new Error("Category not found");
+        }
+
+        await db.collection("BlogEntries").updateOne({ _id: id }, { $set: {
+            ...post,
+            category: category._id,
+            editDates: [new Date()]
+        } });
+    }
 }
 
 export default new PostManager();

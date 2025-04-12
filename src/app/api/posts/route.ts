@@ -13,7 +13,7 @@ export async function GET(request: NextRequest) {
   const posts: BlogEntry[] = await postManager.getAllPosts(page, pageSize);
   const validPosts = posts.filter(
     (post): post is BlogEntry & { _id: NonNullable<BlogEntry["_id"]> } =>
-      post._id !== undefined
+      post._id != null
   );
 
   const postsDtos: BlogPostDto[] = (
