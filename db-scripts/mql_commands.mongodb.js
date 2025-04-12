@@ -119,4 +119,40 @@ db.getCollection("BlogEntries").createIndex(
   { unique: true, sparse: true}
 );
 
+// Design Pattern: Outlier Pattern
 db.PopularBlogEntries.createIndex({ title: 1, author: 1 }, { unique: true });
+
+// Changes
+
+// Add a new author to an existing blog-entry or change the author if a second is not possible
+db.BlogEntries.updateOne(
+  { _id: ObjectId("67e109cb2ddc3e38cfe74211") },
+  { $set: { author: ObjectId("67e109cb2ddc3e38cfe742b1") } }
+);
+db.PopularBlogEntries.updateOne(
+  { _id: ObjectId("67e109cb2ddc3e38cfe74211") },
+  { $set: { author: ObjectId("67e109cb2ddc3e38cfe742b1") } }
+);
+
+// Extend the newest blog-entry by an additional field ‘hashtag’ with content
+const newestPost = db.BlogEntries.find().sort({ creationDate: -1 }).limit(1).toArray()[0];
+if (newestPost) {
+  db.BlogEntries.updateOne(
+    { _id: newestPost._id },
+    { $set: { hashtag: "#CurrentNews" } }
+  );
+} else {
+  const newestPopular = db.PopularBlogEntries.find().sort({ creationDate: -1 }).limit(1).toArray()[0];
+  if (newestPopular) {
+    db.PopularBlogEntries.updateOne(
+      { _id: newestPopular._id },
+      { $set: { hashtag: "#CurrentNews" } }
+    );
+  }
+}
+
+// Update name of a blog category
+db.BlogCategories.updateOne(
+  { name: "Fourth Reich" },
+  { $set: { name: "Neo-Nationalism" } }
+);
