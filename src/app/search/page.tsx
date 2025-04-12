@@ -1,7 +1,8 @@
 "use client";
 
+import PostList from "@/components/posts/list/list";
 import Button from "@/components/ui/flowbite/form/button";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const queryOptions = [
   {
@@ -25,10 +26,6 @@ const queryOptions = [
     endpoint: "/api/queries/titleInContent",
   },
   {
-    label: "All BlogUsers sorted by username",
-    endpoint: "/api/queries/usersSorted",
-  },
-  {
     label: "Newest 2 blog entries",
     endpoint: "/api/queries/newestTwo",
   },
@@ -39,11 +36,7 @@ const queryOptions = [
   {
     label: "Entries from last week with links",
     endpoint: "/api/queries/lastWeekWithLink",
-  },
-  {
-    label: "2 newest comments on a user's posts",
-    endpoint: "/api/queries/newestCommentsByUser",
-  },
+  }
 ];
 
 export default function SearchPage() {
@@ -52,24 +45,25 @@ export default function SearchPage() {
   const runQuery = async (endpoint: string) => {
     const res = await fetch(endpoint);
     const data = await res.json();
-    console.log(res);
     setResult(data);
   };
 
   return (
-    <div className="p-4">
-      <h2 className="text-xl font-bold mb-4">Run Blog Queries</h2>
-      <div className="flex gap-2">
+    <div className="p-4 space-y-4 flex-col">
+      <h2 className="text-xl font-bold">Run Blog Queries</h2>
+  
+      <div className="flex flex-wrap gap-2">
         {queryOptions.map((query, index) => (
           <Button key={index} onClick={() => runQuery(query.endpoint)}>
             {query.label}
           </Button>
         ))}
       </div>
+  
       {result && (
-        <pre className="mt-4 bg-gray-100 p-2 rounded text-sm overflow-auto">
-          {JSON.stringify(result, null, 2)}
-        </pre>
+        <div className="p-2 rounded bg-gray-100">
+          <PostList posts={result} isLoading={false} isPaging className="w-full" />
+        </div>
       )}
     </div>
   );

@@ -9,10 +9,6 @@ export default function PostList({ posts, isLoading, className, isPaging = false
     const paginatedPosts = isPaging ? posts.slice((page - 1) * pageSize, page * pageSize) : posts;
     const totalPages = isPaging ? Math.ceil(posts.length / pageSize) : 1;
 
-    console.log(posts);
-    console.log(totalPages);
-    console.log(isPaging);
-
     const [userId, setUserId] = useState<string | null>(null);
     const [isLoadingChild, setIsLoadingChild] = useState(true);
 
