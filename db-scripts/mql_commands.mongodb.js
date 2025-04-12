@@ -22,13 +22,17 @@ db.BlogCategories.insertMany([
 db.BlogEntries.insertMany([
   {
     _id: ObjectId("67e109cb2ddc3e38cfe74211"),
-    title: "Rising Antisemitism Worldw_ide",
+    title: "Rising Antisemitism Worldwide",
     author: ObjectId("67e109cb2ddc3e38cfe742b2"),
-    description: "An analysis of the increasing antisemitic inc_idents globally.",
+    description: "An analysis of the increasing antisemitic incidents globally.",
     creationDate: new Date(),
     editDates: [],
     impressionCount: 0,
-    content: "<base64_encoded_image> Detailed analysis on antisemitism...",
+    content: {
+      text: "<base64_encoded_image> Detailed analysis on antisemitism...",
+      image: "",
+      link: ""
+    },
     commentsAllowed: true,
     category: ObjectId("67e109cb2ddc3e38cfe74bb1")
   },
@@ -40,7 +44,11 @@ db.BlogEntries.insertMany([
     creationDate: new Date(),
     editDates: [new Date()],
     impressionCount: 5,
-    content: "A deep dive into the MAGA movement...",
+    content: {
+      text: "A deep dive into the MAGA movement...",
+      image: "",
+      link: ""
+    },
     commentsAllowed: true,
     category: ObjectId("67e109cb2ddc3e38cfe74bb2")
   },
@@ -52,7 +60,11 @@ db.BlogEntries.insertMany([
     creationDate: new Date(),
     editDates: [],
     impressionCount: 12,
-    content: "Exploring the Fourth Reich concept...",
+    content: {
+      text: "Exploring the Fourth Reich concept...",
+      image: "",
+      link: ""
+    },
     commentsAllowed: true,
     category: ObjectId("67e109cb2ddc3e38cfe74bb3")
   },
@@ -64,7 +76,11 @@ db.BlogEntries.insertMany([
     creationDate: new Date(),
     editDates: [],
     impressionCount: 0,
-    content: "Policy impacts of MAGA...",
+    content: {
+      text: "Policy impacts of MAGA...",
+      image: "",
+      link: ""
+    },
     commentsAllowed: false,
     category: ObjectId("67e109cb2ddc3e38cfe74bb1")
   },
@@ -76,7 +92,11 @@ db.BlogEntries.insertMany([
     creationDate: new Date(),
     editDates: [new Date()],
     impressionCount: 8,
-    content: "Historical analysis of the Fourth Reich narrative...",
+    content: {
+      text: "Historical analysis of the Fourth Reich narrative...",
+      image: "",
+      link: ""
+    },
     commentsAllowed: true,
     category: ObjectId("67e109cb2ddc3e38cfe74bb2")
   }
