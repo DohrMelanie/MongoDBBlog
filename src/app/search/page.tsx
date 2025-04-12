@@ -49,9 +49,9 @@ export default function SearchPage() {
   };
 
   return (
-    <div className="p-4 space-y-4 flex-col">
-      <h2 className="text-xl font-bold">Run Blog Queries</h2>
-  
+    <div className="p-4 space-y-4 flex flex-col h-full">
+      <h2 className="text-xl font-bold text-gray-100">Run Blog Queries</h2>
+
       <div className="flex flex-wrap gap-2">
         {queryOptions.map((query, index) => (
           <Button key={index} onClick={() => runQuery(query.endpoint)}>
@@ -59,9 +59,9 @@ export default function SearchPage() {
           </Button>
         ))}
       </div>
-  
+
       {result && (
-        <div className="p-2 rounded bg-gray-100">
+        <div className="p-2 rounded" >
           <PostList posts={result} isLoading={false} isPaging className="w-full" />
         </div>
       )}
